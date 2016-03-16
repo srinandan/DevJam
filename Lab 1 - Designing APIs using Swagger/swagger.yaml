@@ -1,0 +1,103 @@
+swagger: '2.0'
+info:
+  description: 'This is a sample Hotels Server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).'
+  version: 1.0.0
+  title: Swagger Hotels
+host: api.usergrid.com
+basePath: /cbagroup/sandbox/hotels
+tags:
+  - name: hotel
+    description: Everything about Hotels
+schemes:
+  - http
+paths:
+  /hotels:
+    get:
+      tags:
+        - hotel
+      summary: Find all hotels nearby
+      description: This method will return a list of hotels from BaaS datastore
+      operationId: findHotels
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/HotelResponse'
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+definitions:
+  HotelResponse:
+    properties:
+      type:
+        type: string
+      name:
+        type: string
+      address1:
+        type: string
+      airportCode:
+        type: string
+      amenityMask:
+        type: integer
+      city:
+        type: string
+      confidenceRating:
+        type: integer
+      countryCode:
+        type: string
+      deepLink:
+        type: string
+      highRate:
+        type: integer
+      hotelId:
+        type: integer
+      hotelInDestination:
+        type: boolean
+      hotelRating:
+        type: integer
+      location:
+        type: object
+        properties:
+          latitude:
+            type: number
+            format: double
+          longitude:
+            type: number
+            format: double
+      locationDescription:
+        type: string
+      lowRate:
+        type: integer
+      postalCode:
+        type: integer
+      propertyCategory:
+        type: integer
+      proximityDistance:
+        type: number
+        format: double
+      proximityUnit:
+        type: string
+      rateCurrencyCode:
+        type: string
+      shortDescription:
+        type: string
+      stateProvinceCode:
+        type: string
+      thumbNailUrl:
+        type: string
+      tripAdvisorRating:
+        type: number
+        format: float
+      tripAdvisorRatingUrl:
+        type: string
+  ErrorResponse:
+    required:
+      - message
+    properties:
+      message:
+        type: string
