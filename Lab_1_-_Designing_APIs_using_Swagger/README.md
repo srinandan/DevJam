@@ -100,8 +100,8 @@ Please expand the Body section to view the entire response.
         /**{your\_baas\_org}**/sandbox/**{your\_initials}**, and replace
         **{your\_baas\_org}** with your BaaS org.
 
-    b.  Copy the URL from the address bar in API Studio (it will be of
-        the form **playground.apistudio.io/XXXXXX/\#/)**
+    b.  Copy the URL from the address bar in API Studio but replace the final '#' with /spec. (it will be of
+        the form **playground.apistudio.io/XXXXXX/spec)**
 
     c.  Open up a browser tab and log in to http://enterprise.apigee.com
 
