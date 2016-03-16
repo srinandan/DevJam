@@ -1,8 +1,8 @@
-![](./media/image1.png){width="8.5in" height="1.3888888888888888e-2in"}
+![](./media/image1.png)
 
 **Lab 3 - Building a simple API Proxy**
 
-![](./media/image2.png){width="6.5in" height="2.861111111111111in"}
+![](./media/image2.png)
 
 **Overview**
 

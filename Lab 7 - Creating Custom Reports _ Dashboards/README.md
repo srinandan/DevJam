@@ -1,8 +1,8 @@
-![](./media/image1.png){width="8.5in" height="1.3888888888888888e-2in"}
+![](./media/image1.png)
 
 **Lab 7 - Create Custom Dimensions and Metrics**
 
-![](./media/image2.png){width="6.5in" height="2.888888888888889in"}
+![](./media/image2.png)
 
 **Overview**
 
@@ -18,7 +18,7 @@ services by create dimension and metrics and use them in Custom reports.
 We will have to use Statistics collector policy to create custom
 dimensions and metrics.
 
-![](./media/image3.png){width="6.5in" height="2.236111111111111in"}
+![](./media/image3.png)
 
 **Statistics Collector policy\
 **Enables you to collect statistics for data in a message, such as
@@ -231,7 +231,7 @@ height="3.0412325021872264in"}
 ![](./media/image6.png){width="5.317708880139983in"
 height="3.128584864391951in"}
 
-![](./media/image7.png){width="6.5in" height="2.0555555555555554in"}
+![](./media/image7.png)
 
 a.  Report Name: **{your initials}** Popular Destination
 
@@ -266,7 +266,7 @@ b.  Filters: devjam\_**{your initials**}\_cityname != ‘na’\
 
 c.  You should now see something like the following:
 
-> ![](./media/image8.png){width="6.5in" height="3.8194444444444446in"}
+> ![](./media/image8.png)
 
 2.  There probably is not much data that Edge Analytics has collected,
     so you many not see anything meaningful quite yet. But let’s
@@ -331,7 +331,7 @@ a.  Invoke ‘/GET hotels’ appending a different UUID (with a hotel from
         you may have to wait a bit to see the data appear in the chart.
         After a cycle of aggregation occurs, you will see:
 
-> ![](./media/image9.png){width="6.5in" height="6.027777777777778in"}
+> ![](./media/image9.png)
 
 c.  Add a filter ((devjam\_cityname ne 'null') and (devjam\_cityname ne
     '(not set)')) in your custom report. This will remove any unknown
@@ -340,7 +340,7 @@ c.  Add a filter ((devjam\_cityname ne 'null') and (devjam\_cityname ne
 The final configuration of the custom report will look like the
 following :
 
-![](./media/image10.png){width="6.5in" height="4.458333333333333in"}
+![](./media/image10.png)
 
 2.  [*Custom
     Dashboards*](http://apigee.com/docs/api-services/content/custom-report-dashboard) -
@@ -360,7 +360,7 @@ following :
     you select up to 4 different pre-built reports (out-of-the-box or
     Custom Reports) that you can monitor across 5 different time domains
 
-![](./media/image11.png){width="6.5in" height="2.9722222222222223in"}
+![](./media/image11.png)
 
 2.  On the first Select drop-down select the Popular Destination report
     that you just built. You can pick any report for the second

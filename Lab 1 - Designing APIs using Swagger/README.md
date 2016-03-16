@@ -1,4 +1,4 @@
-![](./media/image1.png){width="8.5in" height="1.3888888888888888e-2in"}
+![](./media/image1.png)
 
 **Lab 1 - Designing APIs using Swagger**
 

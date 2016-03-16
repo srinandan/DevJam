@@ -1,4 +1,4 @@
-![](./media/image05.png){width="8.5in" height="1.3888888888888888e-2in"}
+![](./media/image05.png)
 
 **DevJam 2.0 - Instructor's Guide**
 

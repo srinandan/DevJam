@@ -1,8 +1,8 @@
-![](./media/image1.png){width="8.5in" height="1.3888888888888888e-2in"}
+![](./media/image1.png)
 
 **Lab 8 - Monitoring your APIs’ Health**
 
-![](./media/image2.png){width="6.5in" height="2.9027777777777777in"}
+![](./media/image2.png)
 
 **Overview**
 
@@ -148,11 +148,11 @@ Now let's change the probe definition.
 
     a.  From the API Health Dashboard, click on Edit probe.
 
-> ![](./media/image14.png){width="6.5in" height="1.9027777777777777in"}
+> ![](./media/image14.png)
 
 a.  Click on “Show Advanced” link.
 
-> ![](./media/image15.png){width="6.5in" height="1.2361111111111112in"}
+> ![](./media/image15.png)
 
 a.  Under “Headers” section make the following entry -
 

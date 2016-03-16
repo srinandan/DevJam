@@ -1,8 +1,8 @@
-![](./media/image13.png){width="8.5in" height="1.3888888888888888e-2in"}
+![](./media/image13.png)
 
 **Lab 5 - Protecting APIs (Traffic Management)**
 
-![](./media/image11.png){width="6.5in" height="2.861111111111111in"}
+![](./media/image11.png)
 
 **Overview**
 

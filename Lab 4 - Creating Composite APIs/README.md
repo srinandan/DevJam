@@ -1,8 +1,8 @@
-![](./media/image1.png){width="8.5in" height="1.3888888888888888e-2in"}
+![](./media/image1.png)
 
 **Lab 4 - Creating Composite APIs**
 
-![](./media/image2.png){width="6.5in" height="2.861111111111111in"}
+![](./media/image2.png)
 
 **Overview**
 
@@ -888,7 +888,7 @@ b.  Once the proxy has been deployed, open it by clicking the link to
     c.  Navigate to the “Scripts” section to view the sample node.js
         source code that is created by default.
 
-> ![](./media/image11.png){width="6.5in" height="2.9444444444444446in"}
+> ![](./media/image11.png)
 
 a.  Replace the code by copying the source you find
     [*here*](https://gist.github.com/sudheehegde/f6c2c6603d3b80b0db33).
@@ -897,7 +897,7 @@ a.  Replace the code by copying the source you find
 b.  Edit the source code and replace **{your-org}** with the actual name
     of your API BaaS organization name.
 
-> ![](./media/image12.png){width="6.5in" height="4.263888888888889in"}
+> ![](./media/image12.png)
 
 a.  Take a minute to review the code. This is an extremely simple
     node.js application, which takes zipcode, country and radius as

@@ -1,4 +1,4 @@
-![](./media/image1.png){width="8.5in" height="1.3888888888888888e-2in"}
+![](./media/image1.png)
 
 **Lab 2 - Introduction to API BaaS (Backend-as-a-Service)**
 
@@ -263,7 +263,7 @@ c.  Browse through the details to review the attributes presented in
     JSON format. For example, attributes such as address1, airportCode,
     location: latitude, location: longitude, etc.
 
-> ![](./media/image6.png){width="6.5in" height="2.9671555118110238in"}
+> ![](./media/image6.png)
 
 a.  Change the value of ‘locationDescription’ attribute to “Near museums
     and stadiums” and then click ‘Validate JSON’
