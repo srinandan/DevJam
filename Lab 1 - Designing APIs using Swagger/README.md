@@ -63,23 +63,23 @@ your Instructor for organization and application details.
     [*http://apistudio.io*](http://apistudio.io). Click on Get Started
     to see the editor in action.
 
-    a.  Copy the [*Swagger YAML located here*](https://gist.github.com/anonymous/90f30c5870c19e7980d9).
+   a.  Copy the Swagger YAML located [here](https://raw.githubusercontent.com/gsjurseth/apigee-devjam/master/Lab%201%20-%20Designing%20APIs%20using%20Swagger/swagger.yaml)
 
-    b.  Select the entire contents of the Swagger editor at API Studio
+   b.  Select the entire contents of the Swagger editor at API Studio
         in the browser and delete it. Paste the Swagger that you copied
         in its place.
 
-    c.  On the right side of the screen you will see the generated
+   c.  On the right side of the screen you will see the generated
         documentation updated to reflect the API described by the
-        Swagger that you just pasted.\
-        \
-        ![](./media/image5.png)
+        Swagger that you just pasted.
+        ![](./media/image5.png)   
 
-    d.  On the right side of the Swagger editor, in the documentation
+   d.  On the right side of the Swagger editor, in the documentation
         view, scroll down to the Responses section and click the Try
         this operation button:
-
-> ![](./media/image6.png)
+  
+  
+![](./media/image6.png)
 
 a.  Scroll down past the request information in the yellow block, so
     that you can see the Send Request button. Click it to make an API
