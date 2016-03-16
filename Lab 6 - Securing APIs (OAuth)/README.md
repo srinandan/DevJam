@@ -190,8 +190,7 @@ OAuth flow.
         Cache’ policy. **Drag and move** the ‘Verify API Key’ policy to
         be before the ‘Response Cache’ policy
 
-![](./media/image3.png){width="3.119792213473316in"
-height="1.4621762904636921in"}
+![](./media/image3.png)
 
 > **Note**: It depends on your use case, but typically API Key
 > verification should be one of the first policies in the flow. In this
@@ -252,8 +251,7 @@ a.  Examine the XML configuration in the ‘Code’ panel (or properties
         Cache’ policy. **Drag and move** the ‘Remove APIKey QP’ policy
         to be before the ‘Response Cache’ policy
 
-![](./media/image4.png){width="2.1718755468066493in"
-height="1.4936154855643045in"}
+![](./media/image4.png)
 
 a.  For the ‘Remove APIKey QP’ policy, change the XML configuration of
     the policy using the ‘Code: Remove APIKey QP’ panel as follows:
@@ -402,8 +400,7 @@ a.  **Publishing an API Product**
 
         -   Key Approval Type: **Automatic**
 
-> ![](./media/image5.png){width="3.9166666666666665in"
-> height="2.2015791776027998in"}
+> ![](./media/image5.png)
 
 i.  In the ‘Resources’ section select the following values for the
     various fields:
@@ -414,8 +411,7 @@ i.  In the ‘Resources’ section select the following values for the
 
     -   Resource Path: **/**
 
-> ![](./media/image6.png){width="4.473958880139983in"
-> height="0.48608377077865267in"}
+> ![](./media/image6.png)
 
 i.  Click on ‘Import Resources’ to add the ‘/’ resource of your proxy to
     the API product
@@ -470,8 +466,7 @@ iii. Add a new developer with the following properties:
 
     -   Username: **{firstname\_lastname}**
 
-![](./media/image7.png){width="3.6614588801399823in"
-height="2.824290244969379in"}
+![](./media/image7.png)
 
 i.  Click ‘Save’ to save the Developer. The new developer should now be
     listed on the ‘Developer’ page.
@@ -511,8 +506,7 @@ v.  From the ‘Product’ drop-down, select the product you created.
 vi. Click the ‘check-mark’ button in the ‘Actions’ column to accept the
     changes
 
-> ![](./media/image8.png){width="4.432292213473316in"
-> height="0.6463757655293089in"}
+> ![](./media/image8.png)
 
 i.  Click ‘Save’ to save the Developer App. The new app should now be
     listed on the ‘Developer Apps’ page
@@ -617,8 +611,7 @@ a.  **Adding an OAuth 2.0 Token Validation Policy **
         API Key’ policy from the ‘{your\_initials}\_hotels’ proxy
         default proxy endpoint preflow.
 
-> ![](./media/image9.png){width="1.4169728783902011in"
-> height="0.9635422134733158in"}
+> ![](./media/image9.png)
 
 i.  Similarly remove “Remove-APIKey-QP” policy as well since we no
     longer need it.
@@ -641,8 +634,7 @@ iii. The ‘Validate OAuth v2 Token’ policy will get added after the
     ‘Response Cache’ policy. **Drag and move** the ‘Validate OAuth v2
     Token’ policy to be before the ‘Spike Arrest” policy.
 
-![](./media/image10.png){width="3.0104166666666665in"
-height="1.4270833333333333in"}
+![](./media/image10.png)
 
 i.  Review the XML configuration and/or the properties associated with
     the ‘Validate OAuth v2 Token’ policy.
@@ -706,8 +698,7 @@ a.  **Removing the Authorization Header After Validating the OAuth Token
         Authorization Header’ policy to be before the ‘Response Cache’
         policy
 
-![](./media/image11.png){width="2.6979166666666665in"
-height="1.0871019247594051in"}
+![](./media/image11.png)
 
 a.  For the ‘Remove Authorization Header’ policy, change the XML
     configuration of the policy using the ‘Code: Remove Authorization
@@ -816,8 +807,7 @@ a.  **Testing the OAuth 2.0 Token Validation Policy with a Valid Token**
         -   grant\_type: **client\_credentials (this should be added as
             query param)**
 
-![](./media/image12.png){width="4.755208880139983in"
-height="2.354743000874891in"}
+![](./media/image12.png)
 
 > **Note**: Copy-paste the Consumer Key and Consumer Secret from the
 > {your\_initials}\_iExplore App’s detail page. As you copy-paste,
@@ -880,8 +870,7 @@ ii. Set up the ‘/GET hotels’ request in Postman with the following query
     -   Remove the content type header “application/json” (if there
         is one)
 
-> ![](./media/image13.png){width="4.630208880139983in"
-> height="1.9515135608048995in"}
+> ![](./media/image13.png)
 >
 > **Note**:
 

@@ -4,8 +4,7 @@
 
 **Overview**
 
-![](./media/image2.png){width="6.088542213473316in"
-height="2.6539796587926507in"}
+![](./media/image2.png)
 
 An API is an interface between the provider of some backend system(s)
 who wants to expose a set of services and the consumers of those
@@ -16,15 +15,13 @@ communicate the terms of that contract, the industry has created a few
 formats for describing an API, the most popular of which is called
 [*Swagger*](http://swagger.io/).
 
-![](./media/image3.png){width="2.8906255468066493in"
-height="1.6080293088363955in"}
+![](./media/image3.png)
 
 By designing your API in Swagger, you allow the API developer and the
 API consumer to both do their jobs and meet successfully in the middle
 without unpleasant surprises.
 
-![](./media/image4.png){width="2.2156080489938756in"
-height="1.7447922134733158in"}
+![](./media/image4.png)
 
 Apigee is a key contributing member of and has partnered with a number
 of other companies to help drive the Swagger spec and contribute open
@@ -77,27 +74,23 @@ your Instructor for organization and application details.
         documentation updated to reflect the API described by the
         Swagger that you just pasted.\
         \
-        ![](./media/image5.png){width="5.781152668416448in"
-        height="2.9739588801399823in"}
+        ![](./media/image5.png)
 
     d.  On the right side of the Swagger editor, in the documentation
         view, scroll down to the Responses section and click the Try
         this operation button:
 
-> ![](./media/image6.png){width="2.901042213473316in"
-> height="1.924990157480315in"}
+> ![](./media/image6.png)
 
 a.  Scroll down past the request information in the yellow block, so
     that you can see the Send Request button. Click it to make an API
     request:\
-    ![](./media/image7.png){width="2.4166666666666665in"
-    height="2.1458333333333335in"}
+    ![](./media/image7.png)
 
 b.  View the response below the button. Note the three tabs (Rendered,
     Pretty, and Raw) and the ability to view the Headers and Body :
 
-![](./media/image8.png){width="3.0364588801399823in"
-height="2.619362423447069in"}\
+![](./media/image8.png)\
 \
 Please expand the Body section to view the entire response.
 
@@ -120,35 +113,30 @@ Please expand the Body section to view the entire response.
 
     f.  From the main menu, select APIs → API Proxies
 
-![](./media/image9.png){width="3.1041666666666665in"
-height="0.9496041119860017in"}
+![](./media/image9.png)
 
 a.  To create a new API proxy, select the + API Proxy button to add a
     new proxy.
 
-![](./media/image10.png){width="1.1041666666666667in"
-height="0.4479166666666667in"}
+![](./media/image10.png)
 
 a.  We are going to create a ‘Reverse Proxy’. This is the most common
     type of API Proxy and allows us to route requests to backend
     services, and we are going to do this using OpenAPI. Hit the **Use
     OpenAPI** button in the Reverse proxy section.
 
-> ![](./media/image11.png){width="4.124028871391076in"
-> height="1.0589227909011374in"}
+> ![](./media/image11.png)
 
 a.  Paste in the URL that you copied from API Studio, replace the
     **\#/** at the end of the URL with **spec**, and hit the **Apply**
     button, and then hit the **Next** button (in the bottom left corner)
 
-> ![](./media/image12.png){width="4.249354768153981in"
-> height="1.3829932195975503in"}
+> ![](./media/image12.png)
 
 a.  On the Build a Proxy form that is displayed, provide information
     needed to generate the API proxy
 
-> ![](./media/image13.png){width="5.656287182852143in"
-> height="2.2591240157480317in"}
+> ![](./media/image13.png)
 >
 > Proxy Name: **{your\_initials}\_hotels**
 >
@@ -171,37 +159,31 @@ a.  On the Build a Proxy form that is displayed, provide information
 a.  Leave the defaults on the next **Flows** screen, hit **Next** to
     continue
 
-> ![](./media/image14.png){width="4.998768591426072in"
-> height="1.1543143044619422in"}
+> ![](./media/image14.png)
 
 a.  On the next screen select **Pass through (none)** as the
     Authorization scheme and hit **Next**
 
-> ![](./media/image15.png){width="4.942112860892388in"
-> height="1.6240879265091863in"}
+> ![](./media/image15.png)
 
 a.  Leave the defaults on the next **Virtual Hosts** screen, hit
     **Next** to continue
 
-> ![](./media/image16.png){width="5.0031999125109365in"
-> height="1.662665135608049in"}
+> ![](./media/image16.png)
 
 a.  Ensure that the ‘test’ checkbox is ticked on the Build screen and
     hit **Build and Deploy**
 
-> ![](./media/image17.png){width="4.998774059492564in"
-> height="2.4165299650043743in"}
+> ![](./media/image17.png)
 
 a.  Once the proxy has been deployed, click on the **view
     {your\_initials}\_hotel proxy in the editor** link
 
-> ![](./media/image18.png){width="5.091265310586177in"
-> height="1.5282852143482064in"}
+> ![](./media/image18.png)
 
 a.  Review the information on the resulting API Proxy page
 
-> ![](./media/image19.png){width="5.428132108486439in"
-> height="3.2627734033245845in"}
+> ![](./media/image19.png)
 
 **Summary**
 

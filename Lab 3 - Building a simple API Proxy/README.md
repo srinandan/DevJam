@@ -43,8 +43,7 @@ request and response exchange between an app (HTTP client) and a backend
 service is managed in an API proxy by a ProxyEndpoint and
 TargetEndpoint.
 
-![](./media/image3.png){width="5.046875546806649in"
-height="1.9815452755905512in"}
+![](./media/image3.png)
 
 You can build API proxies using the Apigee Edge management UI. You can
 also implement API proxies on your local machine, and then import them
@@ -86,23 +85,20 @@ an API proxy directly in Apigee Edge. **
 
     d.  From the main menu, select APIs → API Proxies
 
-> ![](./media/image4.png){width="3.1041666666666665in"
-> height="0.9496041119860017in"}
+> ![](./media/image4.png)
 
 a.  Click on the link to your API Proxy **{yourinitials}\_hotels**
 
 b.  Review the information on the resulting API Proxy page
 
-> ![](./media/image5.png){width="5.525403543307086in"
-> height="3.080291994750656in"}
+> ![](./media/image5.png)
 
 1)  **Deploying and Undeploying a Proxy** to a given environment from
     the Management UI is simple too.
 
     a.  Click on the ‘Deploy’ drop-down on the API Proxy page
 
-> ![](./media/image6.png){width="2.2656255468066493in"
-> height="0.9515627734033246in"}
+> ![](./media/image6.png)
 
 a.  Notice that the proxy we just created is deployed to the ‘test’
     environment
@@ -125,23 +121,20 @@ c.  Click on the ‘Deploy’ drop-down again and select the
     a.  From the ‘**{your\_initials}\_hotels**’ API Proxy page, click on
         the ‘**Trace**’ tab
 
-> ![](./media/image7.png){width="2.2031255468066493in"
-> height="0.48450459317585304in"}
+> ![](./media/image7.png)
 
 a.  Once on the ‘**Trace**’ tab, pick the correct environment from the
     ‘**Deployment to Trace**’ drop-down. In your case there should only
     be one environment to pick - ‘**Environment test, Revision 1**’
 
-> ![](./media/image8.png){width="4.322916666666667in"
-> height="0.78125in"}
+> ![](./media/image8.png)
 
 a.  Click on the ‘**Start Trace Session’** button
 
 b.  After the trace session starts, click on the ‘**Send**’ button in
     the ‘**Send Requests**’ section
 
-> ![](./media/image9.png){width="4.729166666666667in"
-> height="0.42363626421697287in"}
+> ![](./media/image9.png)
 
 a.  You will see the a transaction appear in the ‘Transactions’ section
     and a visual representation of the executed proxy flow in the
@@ -154,8 +147,7 @@ b.  The ‘Transaction Map’ is interactive - click on the various
     other relevant information is available. This helps you quickly
     understand exactly what is happening within the proxy flow.
 
-> ![](./media/image10.png){width="3.9114588801399823in"
-> height="1.473494094488189in"}
+> ![](./media/image10.png)
 
 a.  At this point, we will start to use the ‘Postman’ tool as a client
     to invoke our proxy and continue to use ‘Postman’ throughout the
@@ -165,15 +157,13 @@ a.  At this point, we will start to use the ‘Postman’ tool as a client
 
     -   Select the ‘DevJam 2.0’ environment
 
-> ![](./media/image11.png){width="4.416666666666667in"
-> height="0.4375in"}
+> ![](./media/image11.png)
 
 -   Open the ‘DevJam 2.0’ project
 
 -   Select and send the ‘/GET hotels’ request
 
-![](./media/image12.png){width="1.5729166666666667in"
-height="0.6979166666666666in"}
+![](./media/image12.png)
 
 > Note : Please change the URL to point to your API proxy.
 

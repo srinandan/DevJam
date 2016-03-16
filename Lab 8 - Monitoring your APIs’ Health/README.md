@@ -44,8 +44,7 @@ status code. Let’s get started -
 
 3.  Click ’Add Probe’ to add a new monitoring probe to your API.
 
-![](./media/image3.jpg){width="4.213542213473316in"
-height="2.646968503937008in"}
+![](./media/image3.jpg)
 
 1.  For creating a probe, let’s use the following values
 
@@ -61,8 +60,7 @@ height="2.646968503937008in"}
 
 -   Response &gt; Asset &gt; HTTP Code - 2XX
 
-![](./media/image4.png){width="4.903652668416448in"
-height="3.119792213473316in"}
+![](./media/image4.png)
 
 1.  Click on “Next”.
 
@@ -76,8 +74,7 @@ height="3.119792213473316in"}
 -   Notification Destination : Choose Email and provide **your email
     address**.
 
-![](./media/image5.png){width="3.843465660542432in"
-height="2.5468755468066493in"}
+![](./media/image5.png)
 
 1.  Click on “Next”.
 
@@ -85,26 +82,22 @@ height="2.5468755468066493in"}
 
 3.  Click on “I’m Done”.
 
-![](./media/image6.png){width="4.825757874015748in"
-height="1.7864588801399826in"}
+![](./media/image6.png)
 
 1.  This will create a probe in API Health. You can view all your Probes
     from the API Health dashboard.
 
-![](./media/image7.png){width="5.151042213473316in"
-height="1.0566240157480316in"}
+![](./media/image7.png)
 
 1.  As the Hotels API proxy is protected, all call will fail with 4xx
     errors and you will receive alerts (like the one below) on the
     configured email address.
 
-![](./media/image8.png){width="2.965581802274716in"
-height="1.703125546806649in"}
+![](./media/image8.png)
 
 1.  You can deactivate the probe, from API Health dashboard.
 
-![](./media/image9.jpg){width="6.353601268591426in"
-height="1.3177088801399826in"}
+![](./media/image9.jpg)
 
 1.  **Viewing graphical reports on API Health** -
 
@@ -113,11 +106,9 @@ height="1.3177088801399826in"}
         that step. At the top of the Reports window, you can also select
         other steps in the probe to view composite graphs of all steps.
 
-![](./media/image10.png){width="6.196043307086614in"
-height="4.140625546806649in"}
+![](./media/image10.png)
 
-![](./media/image11.png){width="4.7673501749781275in"
-height="2.4218755468066493in"}
+![](./media/image11.png)
 
 -   By clicking a probe name on the API Health dashboard, you're shown
     composite graphs of average response times and success rates for all
@@ -125,11 +116,9 @@ height="2.4218755468066493in"}
     ones you want, and you can filter the view by time period and
     location the calls were made from.
 
-> ![](./media/image12.png){width="4.836674321959755in"
-> height="3.2864588801399823in"}
+> ![](./media/image12.png)
 >
-> ![](./media/image13.png){width="3.0677088801399823in"
-> height="2.15625in"}
+> ![](./media/image13.png)
 
 **Summary**
 
@@ -163,8 +152,7 @@ a.  Under “Headers” section make the following entry -
 > Note : Replace **{Access\_Token}** with the actual Access token you
 > obtained in the previous step.
 >
-> ![](./media/image16.png){width="6.322916666666667in"
-> height="1.6979166666666667in"}
+> ![](./media/image16.png)
 
 1)  We will keep other configurations as it is. Click on Next and Save
     the probe.

@@ -228,13 +228,11 @@ a.  Drag the ‘Cache Hotels Data’ policy and drop it after the ‘Spike
 
 b.  Your Proxy Endpoints → Default → PreFlow should look as follows:
 
-> ![](./media/image08.png){width="4.901042213473316in"
-> height="1.233114610673666in"}
+> ![](./media/image08.png)
 
 a.  Your Target Endpoints → Default → PostFlow should look as follows:
 
-> ![](./media/image12.png){width="4.734375546806649in"
-> height="1.4491437007874015in"}
+> ![](./media/image12.png)
 
 a.  Save the changes to the API Proxy, wait for it to successfully
     > deploy
@@ -260,13 +258,11 @@ b.  Go back to the Trace view and review the transaction map of both the
 
 > The first transaction map should look as follows:
 >
-> ![](./media/image05.png){width="5.307292213473316in"
-> height="0.6337062554680665in"}
+> ![](./media/image05.png)
 >
 > The second execution flow should look as follows:
 >
-> ![](./media/image14.png){width="5.286458880139983in"
-> height="0.6099759405074365in"}
+> ![](./media/image14.png)
 >
 > After configuring the Response Cache policy, as expected, after the
 > initial request, the second and all other requests for the next 300

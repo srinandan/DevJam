@@ -113,8 +113,7 @@ without screenshots unless a new concept is being introduced.
 
         -   Path: **/{hotel-uuid}**
 
-> ![](./media/image3.png){width="5.630208880139983in"
-> height="0.6135487751531059in"}
+> ![](./media/image3.png)
 
 a.  Add another resource with the following properties:
 
@@ -179,8 +178,7 @@ a.  Add another resource with the following properties:
 
 > A pictorial representation of the logic is depicted below:
 
-![](./media/image4.png){width="7.097010061242345in"
-height="1.5885422134733158in"}
+![](./media/image4.png)
 
 > For the service callout to convert the zipcode to the geocoordinate,
 > you will use the [*Google GeoCoding
@@ -201,8 +199,7 @@ b.  From the ‘Navigator’ pane, select ‘Proxy Endpoints → Default → Get
     a.  From the ‘New Policy’ drop-down, select the ‘Assign Message’
         policy
 
-> ![](./media/image5.png){width="1.7126815398075241in"
-> height="2.369792213473316in"}
+> ![](./media/image5.png)
 
 a.  In the ‘New Policy - Assign Message’ dialog box provide the
     following information:
@@ -580,8 +577,7 @@ b.  Click on the ‘Create Geo Coding Request’ policy in the pipeline and
 > the request flow have been implemented. Your ‘Get Hotels’ Proxy should
 > look as follows:
 >
-> ![](./media/image6.png){width="4.854166666666667in"
-> height="2.0208333333333335in"}
+> ![](./media/image6.png)
 >
 > Though you could have tested each policy iteratively as they were
 > being added to the flow, you have sufficient logic in the flow to test
@@ -591,8 +587,7 @@ b.  Click on the ‘Create Geo Coding Request’ policy in the pipeline and
 a.  Click on the ‘Save’ button to save and deploy the changes to the
     ‘{your\_initials}\_hotels’ API Proxy
 
-> ![](./media/image7.png){width="2.2083333333333335in"
-> height="0.78125in"}
+> ![](./media/image7.png)
 
 a.  Wait for the ‘Successfully saved API Proxy’ message to appear and
     verify that your proxy is deployed to the ‘test’ environment
@@ -789,8 +784,7 @@ operations like traffic management, security, deployment tools, revision
 control, logging, and analytics. Furthermore, you can leverage thousands
 of third-party Node.js modules in your APIs.
 
-![](./media/image8.png){width="4.567708880139983in"
-height="2.5986165791776026in"}
+![](./media/image8.png)
 
 Enterprise developers have found many creative ways to integrate Node.js
 applications into the Edge platform. Some common use cases include:
@@ -841,8 +835,7 @@ apps with Apigee Edge.
 
     d.  From the main menu, select APIs → API Proxies
 
-> ![](./media/image9.png){width="3.1041666666666665in"
-> height="0.9496041119860017in"}
+> ![](./media/image9.png)
 
 a.  To create a new API proxy, select the + API Proxy button to add a
     new proxy.
@@ -850,8 +843,7 @@ a.  To create a new API proxy, select the + API Proxy button to add a
 b.  On the New API Proxy form that is displayed, provide information
     needed to generate an API proxy.
 
-> ![](./media/image10.png){width="3.249095581802275in"
-> height="2.3681988188976377in"}
+> ![](./media/image10.png)
 >
 > Go through the proxy set-up process specifying
 >

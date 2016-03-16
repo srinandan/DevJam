@@ -128,8 +128,7 @@ a.  Using the ‘New Policy’ drop-down add the ‘Statistics Collector’
 > **Note :** Make sure you have Statistics collector policy after
 > Extract Variable policy on the response path (as shown below).
 >
-> ![](./media/image4.png){width="3.0833333333333335in"
-> height="2.0520833333333335in"}
+> ![](./media/image4.png)
 
 a.  For the ‘Statistics Collector’ policy, change the XML configuration
     of the policy as follows :
@@ -222,14 +221,12 @@ a.  Once the two policies have been added and you have clicked “Save”.
     on “Reports”. When on that page click on the '+ Custom Report'
     button on the top right.
 
-![](./media/image5.png){width="6.161458880139983in"
-height="3.0412325021872264in"}
+![](./media/image5.png)
 
 2.  Define the custom report - Enter the values as indicated below and
     click on the blue “Save” button.
 
-![](./media/image6.png){width="5.317708880139983in"
-height="3.128584864391951in"}
+![](./media/image6.png)
 
 ![](./media/image7.png)
 
@@ -366,8 +363,7 @@ following :
     that you just built. You can pick any report for the second
     drop-down or other drop-downs. You should see something like this:
 
-![](./media/image12.png){width="6.5in"
-height="2.9722222222222223in"}**Summary**
+![](./media/image12.png)**Summary**
 
 In this exercise, you learnt about the statistics collector policy &
 custom reports in Apigee Edge. You also added the custom report along

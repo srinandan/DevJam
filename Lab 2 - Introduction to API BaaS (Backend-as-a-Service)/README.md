@@ -17,8 +17,7 @@ rich features and user experience that truly differentiate your app,
 rather than on the time-consuming details of implementing core back-end
 services and infrastructure.
 
-![](./media/image2.png){width="4.296753062117236in"
-height="2.651042213473316in"}
+![](./media/image2.png)
 
 API Baas provides the following features:
 
@@ -234,8 +233,7 @@ Ask your Instructor for Organization and application details.
     in your BaaS instance (this can be accessed from the top right menu
     in the Edge UI or by following step a below).
 
-![](./media/image3.png){width="2.5677088801399823in"
-height="1.274296806649169in"}
+![](./media/image3.png)
 
 a.  Open a browser tab & log in to your API BaaS instance by going
     to: https://apigee.com/appservices/\#!/org-overview.
@@ -244,15 +242,13 @@ b.  Pick your API BaaS organization from the Organization drop-down
 
 c.  Pick the ‘sandbox’ App from the App drop-down
 
-> ![](./media/image4.png){width="4.276042213473316in"
-> height="0.6098622047244094in"}
+> ![](./media/image4.png)
 
 a.  From the BaaS portal menu, select ‘Data’
 
 b.  From the Data collections, select ‘hotels’
 
-> ![](./media/image5.png){width="2.9114588801399823in"
-> height="2.864281496062992in"}
+> ![](./media/image5.png)
 
 a.  On the right hand side, all the entities that are part of the
     ‘hotels’ collection is presented
@@ -268,8 +264,7 @@ c.  Browse through the details to review the attributes presented in
 a.  Change the value of ‘locationDescription’ attribute to “Near museums
     and stadiums” and then click ‘Validate JSON’
 
-> ![](./media/image7.png){width="2.4358978565179354in"
-> height="2.6718755468066493in"}
+> ![](./media/image7.png)
 
 a.  Click on ‘Save’ to save the change you just made.
 
@@ -340,8 +335,7 @@ c.  Using cursors, page forwards and backwards through the results.By
     b.  While in the ‘hotels’ collection, use the ‘GET’ method to query
         for hotels in the city of Seattle
 
-> ![](./media/image8.png){width="4.001877734033246in"
-> height="0.6915387139107612in"}
+> ![](./media/image8.png)
 
 a.  Run the query and review the results. You’ll notice that only those
     hotels with the city attribute matching ‘Seattle’ are returned.
