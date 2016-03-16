@@ -1,6 +1,9 @@
 **DevJam labs**
 Welcome to the apigee DevJam list. Herein you'll find labs, presentations and even presenter information for running through this day long list of exercises.
 
+ * [Presenter information]()
+ * [Lab Presentation](https://github.com/gsjurseth/apigee-devjam/raw/master/Apigee%20DevJam%20Presentation_Final.pptx)
+
 **List of Labs**
 
  * [Lab1: Design first](https://github.com/gsjurseth/apigee-devjam/tree/master/Lab_1_Designing_APIs_using_Swagger)
