@@ -63,7 +63,7 @@ your Instructor for organization and application details.
     [*http://apistudio.io*](http://apistudio.io). Click on Get Started
     to see the editor in action.
 
-   a.  Copy the Swagger YAML located [here](./Lab_1_Designing_APIs_using_Swagger/swagger.yaml)
+   a.  Copy the Swagger YAML located [here](./swagger.yaml)
 
    b.  Select the entire contents of the Swagger editor at API Studio
         in the browser and delete it. Paste the Swagger that you copied
