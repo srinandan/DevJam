@@ -63,7 +63,7 @@ your Instructor for organization and application details.
     [*http://apistudio.io*](http://apistudio.io). Click on Get Started
     to see the editor in action.
 
-   a.  Copy the Swagger YAML located [here](https://raw.githubusercontent.com/gsjurseth/apigee-devjam/master/Lab%201%20-%20Designing%20APIs%20using%20Swagger/swagger.yaml)
+   a.  Copy the Swagger YAML located [here](./Lab_1_Designing_APIs_using_Swagger/swagger.yaml)
 
    b.  Select the entire contents of the Swagger editor at API Studio
         in the browser and delete it. Paste the Swagger that you copied
@@ -77,8 +77,8 @@ your Instructor for organization and application details.
    d.  On the right side of the Swagger editor, in the documentation
         view, scroll down to the Responses section and click the Try
         this operation button:
-  
-  
+
+
 ![](./media/image6.png)
 
 a.  Scroll down past the request information in the yellow block, so
