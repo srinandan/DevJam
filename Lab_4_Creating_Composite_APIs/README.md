@@ -597,7 +597,9 @@ b.  Go to the ‘Trace’ tab and start a trace session by clicking the
 
 c.  Use Postman to test the ‘/GET hotels’ request with the following
     query parameters combinations and review the results being returned
+\
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/run-collection/b620003e75c74414a575#?env%5BDevJam%202.0%5D=W3sia2V5Ijoib3JnIiwidmFsdWUiOiJjYmFncm91cCIsInR5cGUiOiJ0ZXh0IiwiZW5hYmxlZCI6dHJ1ZX0seyJrZXkiOiJlbnYiLCJ2YWx1ZSI6InRlc3QiLCJ0eXBlIjoidGV4dCIsImVuYWJsZWQiOnRydWV9LHsia2V5Ijoib2F1dGgtY2xpZW50LWNyZWRlbnRpYWxzLXByb3h5IiwidmFsdWUiOiJvYXV0aCIsInR5cGUiOiJ0ZXh0IiwiZW5hYmxlZCI6dHJ1ZX0seyJrZXkiOiJpbml0aWFscyIsInZhbHVlIjoiZ3MiLCJ0eXBlIjoidGV4dCIsImVuYWJsZWQiOnRydWV9XQ==)
+
 
     -   zipcode=98101&radius=1000
 
