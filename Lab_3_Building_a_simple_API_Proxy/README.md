@@ -131,7 +131,7 @@ a.  Once on the ‘**Trace**’ tab, pick the correct environment from the
 
 a.  Click on the ‘**Start Trace Session’** button
 
-b.  After the trace session starts, click on the ‘**Send**’ button in
+b.  After the trace session starts, add '/hotels' to the end of the url listed in the box so that it hits the resource "/hotels" imported from the SPEC you imported at proxy creation. Now click on the ‘**Send**’ button in
     the ‘**Send Requests**’ section
 
 > ![](./media/image9.png)
