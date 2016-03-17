@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="Extract-Geo-Codes">
+    <DisplayName>Extract Geo Codes</DisplayName>
+    <Source>GeoCodingResponse</Source>
+  	<VariablePrefix>geocodeResponse</VariablePrefix>
+  	<JSONPayload>
+    	<Variable name="latitude">
+       		<JSONPath>$.results[0].geometry.location.lat</JSONPath>
+    	</Variable>
+    	<Variable name="longitude">
+       		<JSONPath>$.results[0].geometry.location.lng</JSONPath>
+    	</Variable>
+  	</JSONPayload>
+</ExtractVariables>

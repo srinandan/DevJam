@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ServiceCallout async="false" continueOnError="false" enabled="true" name="Call-Geo-Coding-API">
+    <DisplayName>Call Geo Coding API</DisplayName>
+    <Properties/>
+    <Request clearPayload="true" variable="GeoCodingRequest">
+        <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    </Request>
+    <Response>GeoCodingResponse</Response>
+    <HTTPTargetConnection>
+        <Properties/>
+        <URL>http://maps.googleapis.com/maps/api/geocode/json</URL>
+    </HTTPTargetConnection>
+</ServiceCallout>

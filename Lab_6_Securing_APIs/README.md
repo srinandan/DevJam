@@ -220,7 +220,7 @@ a.  Examine the XML configuration in the ‘Code’ panel (or properties
   -------------------------------------------------------------------------------------------------
 
 > *(You can find the policy xml*
-> [**here**](https://gist.github.com/prithpal/02ee175cc1e00a2de610)*.
+> [**here**](./VerifyAPIKey.xml)*.
 > Click the “Raw” button and copy/paste into your policy editor).*
 >
 > Note the &lt;APIKey&gt; element, which identifies where the policy
@@ -281,7 +281,7 @@ a.  For the ‘Remove APIKey QP’ policy, change the XML configuration of
   ----------------------------------------------------------------------------------------------------
 
 > (You can find the policy xml
-> [*here*](https://gist.github.com/prithpal/cbf66ee17b9afe75fdf2). Click
+> [*here*](./RemoveAPIKeyQP.xml). Click
 > the “Raw” button and copy/paste into your policy editor).
 >
 > As a security measure, the ‘Remove APIKey QP’ policy simply removes
@@ -666,7 +666,7 @@ i.  Review the XML configuration and/or the properties associated with
   -----------------------------------------------------------------------------------------------------
 
 > *(You can find the policy xml*
-> [**here**](https://gist.github.com/prithpal/45e6e50683b53685ebc6)*.
+> [**here**](./ValidateOAuthToken.xml)*.
 > Click the “Raw” button and copy/paste into your policy editor).*
 >
 > The value of the &lt;Operation&gt; element indicates the action to
@@ -729,7 +729,7 @@ a.  For the ‘Remove Authorization Header’ policy, change the XML
   ---------------------------------------------------------------------------------------------------------------
 
 > *(You can find the policy xml*
-> [**here**](https://gist.github.com/prithpal/aaee5179e37a18a6d9ea)*.
+> [**here**](./RemoveAuthorizationHeader.xml)*.
 > Click the “Raw” button and copy/paste into your policy editor).*
 >
 > As a security measure, the ‘Remove Authorization Header’ policy

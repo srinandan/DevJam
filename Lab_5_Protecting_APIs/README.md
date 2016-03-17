@@ -154,7 +154,7 @@ b.  Save the changes to the proxy and ensure that it is deployed
     > successfully to the ‘test’ environment
 
 > *(You can find the policy xml*
-> [**here**](https://gist.github.com/prithpal/08db967d0564288d9016)*.
+> [**here**](./SpikeArrest10pm.xml)*.
 > Click the “Raw” button and copy/paste into your policy editor).*
 >
 > Think of Spike Arrest as a way to generally protect against traffic

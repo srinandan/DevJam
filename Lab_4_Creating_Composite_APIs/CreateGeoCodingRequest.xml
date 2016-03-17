@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="Create-Geo-Coding-Request">
+    <DisplayName>Create Geo Coding Request</DisplayName>
+    <AssignTo createNew="true" type="request">GeoCodingRequest</AssignTo>
+    <Set>
+        <QueryParams>
+            <QueryParam name="address">{request.queryparam.zipcode}</QueryParam>
+            <QueryParam name="region">US</QueryParam>
+            <QueryParam name="sensor">false</QueryParam>
+        </QueryParams>
+        <Verb>GET</Verb>
+    </Set>
+    <!-- Set variables for use in the flow -->
+    <AssignVariable>
+        <Name>zipcode</Name>
+        <Ref>request.queryparam.zipcode</Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>radius</Name>
+        <Value>0</Value>
+        <Ref>request.queryparam.radius</Ref>
+    </AssignVariable>
+</AssignMessage>
