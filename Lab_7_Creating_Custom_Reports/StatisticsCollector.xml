@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<StatisticsCollector async="false" continueOnError="false" enabled="true" name="Statistics-Collector">
+    <DisplayName>Statistics Collector</DisplayName>
+    <Properties/>
+    <Statistics>
+        <Statistic name="devjam_{your_initials}_city" ref="hotelCity" type="String">NO_CITY</Statistic>
+        <Statistic name="devjam_{your_initials}_rating" ref="hotelRating" type="Float">NO_RATING</Statistic>
+    </Statistics>
+</StatisticsCollector> 

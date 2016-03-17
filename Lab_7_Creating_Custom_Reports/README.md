@@ -105,7 +105,7 @@ d.  For the ‘Extract Variables’ policy, change the XML configuration of
   --------------------------------------------------------------------------------------------------------
 
 > *(You can find the policy xml*
-> [**here**](https://gist.github.com/prithpal/ab704e5dea4a77b97497)*.
+> [**here**](./ExtractVariables.xml)*.
 > Click the “Raw” button and copy/paste into your policy editor).*
 >
 > The JSONPath expression above extracts city & rating information from
@@ -154,7 +154,7 @@ a.  For the ‘Statistics Collector’ policy, change the XML configuration
   ----------------------------------------------------------------------------------------------------------------------
 
 > *(You can find the policy xml*
-> [**here**](https://gist.github.com/prithpal/28dd0378ac9bdb88d922)*.
+> [**here**](./StatisticsCollector.xml)*.
 > Click the “Raw” button and copy/paste into your policy editor).*
 >
 > You will see devjam\_**{your\_initials}**\_city and
@@ -389,5 +389,3 @@ are available to you.
     -   Developer Engagement
 
     -   Error Analysis reports
-
-

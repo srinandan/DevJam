@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="Extract-Variables">
+    <DisplayName>Extract Variables</DisplayName>
+    <JSONPayload>
+        <Variable name="hotelRating">
+            <JSONPath>$.entities[0].hotelRating</JSONPath>
+        </Variable>
+        <Variable name="hotelCity">
+            <JSONPath>$.entities[0].city</JSONPath>
+        </Variable>
+    </JSONPayload>
+    <Source clearPayload="false">response</Source>
+</ExtractVariables>
