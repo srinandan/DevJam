@@ -57,7 +57,7 @@ Policy types
 > Policies in the security category support authentication,
 > authorization, as well as content-based security.
 
-### *Extension* 
+### *Extension*
 
 > Policies in the extension category enable you to tap into the
 > extensibility of API Services to implement custom behavior in the
@@ -329,7 +329,7 @@ b.  Click on the ‘Create Geo Coding Request’ policy in the pipeline and
         -   URL: **http://maps.googleapis.com/maps/api/geocode/json**
 
 > *(You can find the policy xml*
-> [**here**](https://gist.github.com/prithpal/41fd17d267f279a53c01)*.
+> [**here**](./CallGeoCodingAPI.xml)*.
 > Click the “Raw” button and copy/paste into your policy editor).*
 >
 > Here's a brief description of the elements that were modified in this
@@ -400,7 +400,7 @@ b.  Click on the ‘Create Geo Coding Request’ policy in the pipeline and
   --------------------------------------------------------------------------------------------------------
 
 > *(You can find the policy xml*
-> [**here**](https://gist.github.com/prithpal/d97146f2c30160992256)*.
+> [**here**](./ExtractGeoCodes.xml)*.
 > Click the “Raw” button and copy/paste into your policy editor).*
 >
 > Here's a brief description of the elements that were modified in this

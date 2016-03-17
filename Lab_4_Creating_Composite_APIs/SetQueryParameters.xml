@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="Set-Query-Parameters">
+  <DisplayName>Set Query Parameters</DisplayName>
+  <Remove>
+    <QueryParams>
+      <QueryParam name="zipcode"/>
+      <QueryParam name="radius"/>
+    </QueryParams>
+  </Remove>
+  <Set>
+    <QueryParams>
+      <QueryParam name="ql">{baasQL}</QueryParam>
+    </QueryParams>
+  </Set>
+</AssignMessage>
