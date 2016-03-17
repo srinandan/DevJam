@@ -142,7 +142,7 @@ a.  On the Build a Proxy form that is displayed, provide information
 > Project Base Path: **/v1/{your\_initials}\_hotels**
 >
 > Existing API:
-> **https://api.usergrid.com/{your-BaaS-org}/sandbox/hotels**
+> **https://api.usergrid.com/{your-BaaS-org}/sandbox**
 >
 > Description: **Façade to the Baas hotel data collection**
 >
