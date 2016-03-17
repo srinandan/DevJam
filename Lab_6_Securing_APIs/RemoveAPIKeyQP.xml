@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="Remove-APIKey-QP">
+    <DisplayName>Remove APIKey QP</DisplayName>
+    <Remove>
+        <QueryParams>
+            <QueryParam name="apikey"></QueryParam>
+        </QueryParams>
+    </Remove>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>
