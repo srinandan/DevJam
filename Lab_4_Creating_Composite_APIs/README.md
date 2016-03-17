@@ -268,7 +268,7 @@ b.  Click on the ‘Create Geo Coding Request’ policy in the pipeline and
   -------------------------------------------------------------------------------------------------------------
 
 > *(You can find the policy xml*
-> [**here**](https://gist.github.com/prithpal/f3222b3f220c6fa18e13)*.
+> [**here**](./CreateGeoCodingRequest.xml)*.
 > Click the “Raw” button and copy/paste into your policy editor).*
 >
 > Here's a brief description of the elements in this policy. You can
@@ -481,7 +481,7 @@ b.  Click on the ‘Create Geo Coding Request’ policy in the pipeline and
   ---------------------------------------------------------------------------------
 
 > *(You can find the javascript file content*
-> [**here**](https://gist.github.com/prithpal/680ca505dbacc267d1dd)*.
+> [**here**](./createLocationQuery.js)*.
 > Click the “Raw” button and copy/paste into your policy editor).*
 >
 > This Javascript code uses the ‘context’ object, which is part of the
@@ -554,7 +554,7 @@ b.  Click on the ‘Create Geo Coding Request’ policy in the pipeline and
   --------------------------------------------------------------------------------------------------------
 
 > *(You can find policy xml*
-> [**here**](https://gist.github.com/prithpal/a2057c62e9244db35e32)*.
+> [**here**](./SetQueryParameters.xml)*.
 > Click the “Raw” button and copy/paste into your policy editor).*
 >
 > Here's a brief description of the elements that were modified in this
@@ -720,7 +720,7 @@ c.  Add the following code to the ‘Create-Final-Response.js’ script:
   -----------------------------------------------------------------------------------------------------------------------
 
 > *(You can find the javascript file content*
-> [**here**](https://gist.github.com/prithpal/69c870bc5971d067fb8d)*.
+> [**here**](./createFinalResponse.js)*.
 > Click the “Raw” button and copy/paste into your policy editor).*
 >
 > The above script creates a customized JSON response by merging
@@ -883,7 +883,7 @@ b.  Once the proxy has been deployed, open it by clicking the link to
 > ![](./media/image11.png)
 
 a.  Replace the code by copying the source you find
-    [*here*](https://gist.github.com/sudheehegde/f6c2c6603d3b80b0db33).
+    [*here*](./nodeMashup.js).
     Click the “**Raw**” button and copy/paste into your policy editor.
 
 b.  Edit the source code and replace **{your-org}** with the actual name
