@@ -1,12 +1,10 @@
 ![](./media/image35.png){width="8.5in" height="1.3888888888888888e-2in"}
 
-**Lab 1 – Design and Build a simple API Proxy\
-**
+**Lab 1 – Design and Build a simple API Proxy**
 
 **Overview**
 
-![](./media/image36.png){width="6.088542213473316in"
-height="2.6539796587926507in"}
+![](./media/image36.png {width="6.088542213473316in" height="2.6539796587926507in"})
 
 An API is an interface between the provider of some backend system(s)
 who wants to expose a set of services and the consumers of those
@@ -41,8 +39,8 @@ spec, or API deployment:
     > A toolkit for modeling and building rich, enterprise-class APIs in
     > Node.js on your laptop.
 
--   [*http://editor.swagger.io*](http://editor.swagger.io) - This editor
-    > is the basis for the ones used in the above two projects, but it
+-   [*http://editor.swagger.io*](http://editor.swagger.io) - 
+    > This editor is the basis for the ones used in the above two projects, but it
     > also includes code generators for a number of other languages.
 
 1.  **Review the OpenAPI specification** hosted
