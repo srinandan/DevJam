@@ -4,7 +4,7 @@
 
 **Overview**
 
-![](./media/image36.png {width="6.088542213473316in" height="2.6539796587926507in"})
+![](./media/image36.png)
 
 An API is an interface between the provider of some backend system(s)
 who wants to expose a set of services and the consumers of those
@@ -20,8 +20,7 @@ By designing your API in OpenAPI spec, you allow the API developer and
 the API consumer to both do their jobs and meet successfully in the
 middle without unpleasant surprises.
 
-![](./media/image38.png){width="2.2156080489938756in"
-height="1.7447922134733158in"}
+![](./media/image38.png)
 
 Apigee is a key contributing member of and has partnered with a number
 of other companies to help drive the OpenAPI spec and contribute open
@@ -45,8 +44,7 @@ spec, or API deployment:
 
 1.  **Review the OpenAPI specification** hosted
     > [*here*](http://playground.apistudio.io/9dd084db-7136-460e-8fe8-bde4ecafdc93/#/).\
-    > ![](./media/image37.png){width="5.934365704286964in"
-    > height="3.2239588801399823in"}
+![](./media/image37.png)
 
 ***URL** -*
 [**http://playground.apistudio.io/9dd084db-7136-460e-8fe8-bde4ecafdc93/\#/**](http://playground.apistudio.io/9dd084db-7136-460e-8fe8-bde4ecafdc93/#/)*\
@@ -56,13 +54,11 @@ spec, or API deployment:
     > down to **GET /hotels** in the Responses section and click the
     > **Try this operation** button:
 
-> ![](./media/image40.png){width="6.322916666666667in"
-> height="2.6458333333333335in"}
+> ![](./media/image40.png)
 
 1.  Click on Send Request and observe the response
 
-> ![](./media/image39.png){width="6.3125in"
-> height="3.8645833333333335in"}
+> ![](./media/image39.png){
 
 <span id="h.ri196vnobha9" class="anchor"></span>
 
@@ -109,7 +105,7 @@ OpenAPI specification, let’s create an API proxy in Apigee Edge.
 
 <span id="h.gjdgxs" class="anchor"></span>
 
-![](./media/image42.png){width="6.5in" height="2.861111111111111in"}
+![](./media/image42.png)
 
 Apigee Edge enables you to expose APIs that can be easily consumed by
 developers who build apps. You expose APIs on Apigee Edge by building
@@ -130,13 +126,15 @@ API, you attach Policies to request and response Flows.
 
 In an API proxy configuration, there are two types of endpoints:
 
--   **ProxyEndpoint:** This configuration manages interactions with apps
+-   **ProxyEndpoint:** 
+    > This configuration manages interactions with apps
     > that consume your API. You configure the ProxyEndpoint to define
     > the URL of your API. You usually attach Policies to the
     > ProxyEndpoint to enforce security, quota checks, and other types
     > of access control and rate-limiting.
 
--   **TargetEndpoint:** This configuration manages interactions with
+-   **TargetEndpoint:** 
+    > This configuration manages interactions with
     > your backend services on behalf of consumer apps. You configure
     > the TargetEndpoint to forward request messages to the proper
     > backend service. You usually attach Policies to the TargetEndpoint
@@ -148,8 +146,7 @@ request and response exchange between an app (HTTP client) and a backend
 service is managed in an API proxy by a ProxyEndpoint and
 TargetEndpoint.
 
-![](./media/image41.png){width="5.046875546806649in"
-height="1.9815452755905512in"}
+![](./media/image41.png)
 
 You can build API proxies using the Apigee Edge management UI. You can
 also implement API proxies on your local machine, and then import them
@@ -163,8 +160,8 @@ In this lab you will get familiar with the Apigee Edge Management UI by
 creating a simple passthrough facade to the GET API for the ‘hotels’
 data collection in API BaaS. After creating the facade you will also
 learn how to deploy and undeploy a proxy. Finally you will also learn
-how to use the Trace capabilities in the Management UI.\
-\
+how to use the Trace capabilities in the Management UI.
+
 **Some API teams build APIs using Design-First approach where they start
 with creating a Swagger (OpenAPI) document. Some of them happen to have
 many existing back-end services/APIs & they prefer a Build-First
@@ -192,27 +189,23 @@ lab shows you how to build proxies. **
 
     d.  From the main menu, select APIs → API Proxies
 
-> ![](./media/image45.png){width="3.1041666666666665in"
-> height="0.9496041119860017in"}
+> ![](./media/image45.png)
 
 a.  To create a new API proxy, select the + API Proxy button to add a
     > new proxy.
 
-> ![](./media/image43.png){width="1.1041666666666667in"
-> height="0.4479166666666667in"}
+> ![](./media/image43.png)
 
 a.  On the New API Proxy form that is displayed, provide information
-    > needed to generate an API proxy. Select **Reverse Proxy** and
-    > click on **Use OpenAPI** -
+    needed to generate an API proxy. Select **Reverse Proxy** and
+    click on **Use OpenAPI** -
 
-> ![](./media/image44.png){width="5.299658792650918in"
-> height="2.057292213473316in"}
+> ![](./media/image44.png)
 
 a.  Click on **apply**
 
-> ![](./media/image46.png){width="4.495088582677165in"
-> height="1.508928258967629in"}
->
+> ![](./media/image46.png)
+
 > URL:
 > [*http://playground.apistudio.io/9dd084db-7136-460e-8fe8-bde4ecafdc93/spec*](http://playground.apistudio.io/9dd084db-7136-460e-8fe8-bde4ecafdc93/spec)[](http://playground.apistudio.io/9dd084db-7136-460e-8fe8-bde4ecafdc93/spec)
 >
@@ -220,8 +213,7 @@ a.  Click on **apply**
 
 a.  Enter Proxy details
 
-> ![](./media/image34.png){width="5.026042213473316in"
-> height="2.8060192475940506in"}
+> ![](./media/image34.png)
 >
 > Existing API:
 > **https://api.usergrid.com/{your-BaaS-org}/sandbox/hotels**
@@ -236,34 +228,29 @@ a.  Enter Proxy details
 
 a.  Select **all operations** from the OpenAPI spec to proxy
 
-> ![](./media/image47.png){width="4.869792213473316in"
-> height="1.6770833333333333in"}
+> ![](./media/image47.png)
 
 a.  Do not apply any security policy for the proxy (this will be done in
     > the later labs)
 
-> ![](./media/image48.png){width="4.869792213473316in"
-> height="1.8645833333333333in"}
+> ![](./media/image48.png)
 
 a.  Select the **default** virtual host (http only) -
 
-> ![](./media/image49.png){width="5.078125546806649in"
-> height="1.78125in"}
+> ![](./media/image49.png)
 
 a.  Select environments to deploy **test** and click **‘Build and
-    > Deploy’\
-    > **
+    Deploy’**
+    
 
-> ![](./media/image06.png){width="5.088542213473316in"
-> height="3.5833333333333335in"}
+> ![](./media/image06.png)
 
 1)  **Deploying and Undeploying a Proxy** to a given environment from
     > the Management UI is simple too.
 
     a.  Click on the ‘Deploy’ drop-down on the API Proxy page
 
-> ![](./media/image50.png){width="2.2656255468066493in"
-> height="0.9515627734033246in"}
+> ![](./media/image50.png)
 
 a.  Notice that the proxy we just created is deployed to the
     > ‘test’ environment.
@@ -286,23 +273,20 @@ c.  Click on the ‘Deploy’ drop-down again and select the
     a.  From the ‘**{your\_initials}**\_hotels’ API Proxy page, click on
         > the ‘Trace’ tab
 
-> ![](./media/image51.png){width="2.2031255468066493in"
-> height="0.48450459317585304in"}
+> ![](./media/image51.png)
 
 a.  Once on the ‘Trace’ tab, pick the correct environment from the
     > ‘Deployment to Trace’ drop-down. In your case there should only be
     > one environment to pick - ‘Environment test, Revision 1’
 
-> ![](./media/image05.png){width="4.322916666666667in"
-> height="0.78125in"}
+> ![](./media/image05.png)
 
 a.  Click on the ‘Start Trace Session’ button
 
 b.  After the trace session starts, click on the ‘Send’ button in the
     > ‘Send Requests’ section
 
-> ![](./media/image08.png){width="4.729166666666667in"
-> height="0.42363626421697287in"}
+> ![](./media/image08.png)
 
 a.  You will see the a transaction appear in the ‘Transactions’ section
     > and a visual representation of the executed proxy flow in the
@@ -316,8 +300,7 @@ b.  The ‘Transaction Map’ is interactive - click on the various
     > you quickly understand exactly what is happening within the
     > proxy flow.
 
-> ![](./media/image28.png){width="3.9114588801399823in"
-> height="1.473494094488189in"}
+> ![](./media/image28.png)
 
 a.  At this point, we will start to use the ‘Postman’ tool as a client
     > to invoke our proxy and continue to use ‘Postman’ throughout the
@@ -327,15 +310,13 @@ a.  At this point, we will start to use the ‘Postman’ tool as a client
 
     -   Select the ‘DevJam 2.0’ environment
 
-> ![](./media/image30.png){width="4.416666666666667in"
-> height="0.4375in"}
+> ![](./media/image30.png)
 
 -   Open the ‘DevJam 2.0’ project
 
 -   Select and send the ‘/GET hotels’ request
 
-> ![](./media/image31.png){width="1.5729166666666667in"
-> height="0.6979166666666666in"}
+> ![](./media/image31.png)
 >
 > Note : Please change the URL to point to your API proxy.
 
