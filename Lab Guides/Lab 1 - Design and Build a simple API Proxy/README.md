@@ -1,6 +1,6 @@
 ![](./media/image35.png)
 
-**Lab 1 – Design and Build a simple API Proxy**
+*Lab 1 – Design and Build a simple API Proxy*
 
 **Overview**
 
@@ -51,14 +51,14 @@ URL:
 
 
 2.  On the right side of the editor, in the documentation view, scroll
-    > down to **GET /hotels** in the Responses section and click the
-    > **Try this operation** button:
+    down to **GET /hotels** in the Responses section and click the
+    **Try this operation** button:
 
-> ![](./media/image40.png)
+![](./media/image40.png)
 
 3.  Click on Send Request and observe the response
 
-> ![](./media/image39.png){
+![](./media/image39.png){
 
 <span id="h.ri196vnobha9" class="anchor"></span>
 
@@ -101,7 +101,7 @@ URL:
 <span id="h.m2oesdy59f8i" class="anchor"></span>
 
 <span id="h.lmooryntc5mx" class="anchor"></span>Now that we have the
-OpenAPI specification, let’s create an API proxy in Apigee Edge.
+OpenAPI specification, let**s create an API proxy in Apigee Edge.
 
 <span id="h.gjdgxs" class="anchor"></span>
 
@@ -157,7 +157,7 @@ environment](http://apigee.com/docs/api-services/content/using-apigee-edge-devel
 **Objectives**
 
 In this lab you will get familiar with the Apigee Edge Management UI by
-creating a simple passthrough facade to the GET API for the ‘hotels’
+creating a simple passthrough facade to the GET API for the **hotels**
 data collection in API BaaS. After creating the facade you will also
 learn how to deploy and undeploy a proxy. Finally you will also learn
 how to use the Trace capabilities in the Management UI.
@@ -170,7 +170,7 @@ lab shows you how to build proxies.
 
 **Prerequisites**
 
-- Postman tool installed and ‘DevJam 2.0’ bundle imported.
+- Postman tool installed and **DevJam 2.0** bundle imported.
 
 **Estimated Time: 15 mins**
 
@@ -180,15 +180,15 @@ lab shows you how to build proxies.
     model the API that will be exposed to developers.**
 
     a.  Open up a browser tab and log in to
-    >    [*http://enterprise.apigee.com*](http://enterprise.apigee.com)
-    >
+        [*http://enterprise.apigee.com*](http://enterprise.apigee.com)
+    
     b.  From the Organization drop-down in the top-right corner, select
-    >    the organization assigned to you.
-    >
-    c.  From the Environment drop-down, select ‘test’
+        the organization assigned to you.
+    
+    c.  From the Environment drop-down, select **test**
     
     d.  From the main menu, select APIs → API Proxies
-    >
+    
  > ![](./media/image45.png)
 
     e.  To create a new API proxy, select the + API Proxy button to add a
@@ -239,8 +239,8 @@ lab shows you how to build proxies.
 
 > ![](./media/image49.png)
 
-    l.  Select environments to deploy **test** and click **‘Build and
-    Deploy’**
+    l.  Select environments to deploy **test** and click ****Build and
+    Deploy****
     
 
 > ![](./media/image06.png)
@@ -248,18 +248,18 @@ lab shows you how to build proxies.
 2)  **Deploying and Undeploying a Proxy** to a given environment from
     the Management UI is simple too.
 
-    a.  Click on the ‘Deploy’ drop-down on the API Proxy page
+    a.  Click on the **Deploy** drop-down on the API Proxy page
 
 > ![](./media/image50.png)
 
     b. Notice that the proxy we just created is deployed to the
-       ‘test’ environment.
+       **test** environment.
 
-    c. Click on the ‘test’ environment name. This undeploys the proxy from
-        the ‘test’ environment
+    c. Click on the **test** environment name. This undeploys the proxy from
+        the **test** environment
 
-    d.  Click on the ‘Deploy’ drop-down again and select the
-    ‘test’ environment. This re-deploys the proxy to the ‘test’
+    d.  Click on the **Deploy** drop-down again and select the
+    **test** environment. This re-deploys the proxy to the **test**
     environment
 
 <!-- -->
@@ -270,31 +270,31 @@ lab shows you how to build proxies.
     proxies running on Apigee Edge. Trace lets you probe the details
     of each step through an API proxy flow.
 
-    a.  From the ‘**{your\_initials}**\_hotels’ API Proxy page, click on
-        the ‘Trace’ tab
+    a.  From the **{your\_initials}**\_hotels API Proxy page, click on
+        the **Trace** tab
 
 > ![](./media/image51.png)
 
-    b.  Once on the ‘Trace’ tab, pick the correct environment from the
-        ‘Deployment to Trace’ drop-down. In your case there should only be
-        one environment to pick - ‘Environment test, Revision 1’
+    b.  Once on the **Trace** tab, pick the correct environment from the
+        **Deployment to Trace** drop-down. In your case there should only be
+        one environment to pick - **Environment test, Revision 1**
 
 > ![](./media/image05.png)
 
-    c.  Click on the ‘Start Trace Session’ button
+    c.  Click on the **Start Trace Session** button
 
-    d.  After the trace session starts, click on the ‘Send’ button in the
-        ‘Send Requests’ section
+    d.  After the trace session starts, click on the **Send** button in the
+        **Send Requests** section
 
 > ![](./media/image08.png)
 
-    e.  You will see the a transaction appear in the ‘Transactions’ section
+    e.  You will see the a transaction appear in the **Transactions** section
         and a visual representation of the executed proxy flow in the
-        ‘Transaction Map’ section
+        **Transaction Map** section
 
-    f.  The ‘Transaction Map’ is interactive - click on the various
+    f.  The **Transaction Map** is interactive - click on the various
         execution steps within the flow and review the information
-        provided in the ‘Phase Details’ section. You will notice that for
+        provided in the **Phase Details** section. You will notice that for
         each step information such as headers, variables, payload,
         properties and other relevant information is available. This helps
         you quickly understand exactly what is happening within the
@@ -302,28 +302,28 @@ lab shows you how to build proxies.
 
 > ![](./media/image28.png)
 
-    g.  At this point, we will start to use the ‘Postman’ tool as a client
-        to invoke our proxy and continue to use ‘Postman’ throughout the
+    g.  At this point, we will start to use the **Postman** tool as a client
+        to invoke our proxy and continue to use **Postman** throughout the
         rest of the labs.
 
-    -   Launch ‘Postman’
-    -   Select the ‘DevJam 2.0’ environment
+    -   Launch **Postman**
+    -   Select the **DevJam 2.0** environment
 
 > ![](./media/image30.png)
 
-    -   Open the ‘DevJam 2.0’ project
-    -   Select and send the ‘/GET hotels’ request
+    -   Open the **DevJam 2.0** project
+    -   Select and send the **/GET hotels** request
 
 > ![](./media/image31.png)
 
 > Note : Please change the URL to point to your API proxy.
 
 -   Review the response returned by the proxy. It should be the same
-    response as the one you observed when using the ‘Trace’ tool in
+    response as the one you observed when using the **Trace** tool in
     the Management UI
 
-    h.  Switch to the ‘Trace’ tab of the Apigee Edge Management UI and click
-        on the ‘Stop Trace’ button
+    h.  Switch to the **Trace** tab of the Apigee Edge Management UI and click
+        on the **Stop Trace** button
 
 **Summary**
 
