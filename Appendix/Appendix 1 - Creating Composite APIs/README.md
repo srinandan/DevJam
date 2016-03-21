@@ -1,8 +1,8 @@
-![](./media/image08.png){width="8.5in" height="1.3888888888888888e-2in"}
+![](./media/image08.png)
 
-**Appendix 1 - Creating Composite APIs**
+*Appendix 1 - Creating Composite APIs*
 
-![](./media/image12.png){width="6.5in" height="2.861111111111111in"}
+![](./media/image12.png)
 
 **Overview**
 
@@ -14,52 +14,46 @@ provide features like security, rate-limiting, transformation, and
 mediation capabilities, saving you from having to code and maintain this
 functionality on your own.
 
-Policy types
-------------
+**Policy types**
+Technically, a policy is an XML-formatted configuration file. Each
+policy type's structure (for example, the required and optional
+configuration elements) is defined by an XML schema.
 
-> Technically, a policy is an XML-formatted configuration file. Each
-> policy type's structure (for example, the required and optional
-> configuration elements) is defined by an XML schema.
->
-> Edge Policy types are grouped into the following functional
-> categories:
+Edge Policy types are grouped into the following functional
+categories:
 
-### *Traffic management*
+***Traffic management***
+Policies in the traffic management category enable you to control the
+flow of request and response messages through an API proxy. These
+policies support both operational- and business-level control. They
+give you control over raw throughput, and can also control traffic on
+a per-app basis. Traffic management policy types enable you to enforce
+quotas, and they also help you to mitigate denial of service attacks.
 
-> Policies in the traffic management category enable you to control the
-> flow of request and response messages through an API proxy. These
-> policies support both operational- and business-level control. They
-> give you control over raw throughput, and can also control traffic on
-> a per-app basis. Traffic management policy types enable you to enforce
-> quotas, and they also help you to mitigate denial of service attacks.
+***Mediation***
+Policies in the mediation category enable you to actively manipulate
+messages as they flow through API proxies. They enable you to
+transform message formats, from XML to JSON (and vice-versa), or to
+transform one XML format to another XML format. They also enable you
+to parse messages, to generate new messages and to change values on
+outbound messages. Mediation policies also interact with basic
+services exposed by API Services, enabling you to retrieve data about
+apps, developers, security tokens, and API products at runtime.
 
-### *Mediation*
+***Security***
+Policies in the security category support authentication,
+authorization, as well as content-based security.
 
-> Policies in the mediation category enable you to actively manipulate
-> messages as they flow through API proxies. They enable you to
-> transform message formats, from XML to JSON (and vice-versa), or to
-> transform one XML format to another XML format. They also enable you
-> to parse messages, to generate new messages and to change values on
-> outbound messages. Mediation policies also interact with basic
-> services exposed by API Services, enabling you to retrieve data about
-> apps, developers, security tokens, and API products at runtime.
+***Extension***
+Policies in the extension category enable you to tap into the
+extensibility of API Services to implement custom behavior in the
+programming language of your choice.
 
-### *Security*
-
-> Policies in the security category support authentication,
-> authorization, as well as content-based security.
-
-### *Extension* 
-
-> Policies in the extension category enable you to tap into the
-> extensibility of API Services to implement custom behavior in the
-> programming language of your choice.
->
-> Each Policy type is documented in detail in the [Policy reference
-> overview](http://apigee.com/docs/api-services/reference/reference-overview-policy).
-> This topic demonstrates general interaction, showing you how to create
-> Policies, and how to attach them to Flows in an API proxy
-> configuration.
+Each Policy type is documented in detail in the [Policy reference
+overview](http://apigee.com/docs/api-services/reference/reference-overview-policy).
+This topic demonstrates general interaction, showing you how to create
+Policies, and how to attach them to Flows in an API proxy
+configuration.
 
 **Objectives**
 
@@ -84,202 +78,166 @@ without screenshots unless a new concept is being introduced.
 **Estimated Time : 30 mins**
 
 1)  **Adding Policies to a Proxy** is done from the ‘Develop’ tab of the
-    > API Proxy.
+    API Proxy.
 
     a.  Now that you have an API Proxy configured with a couple of
-        > resources, you will add logic to the ‘Find all Hotels’
-        > resource using policies.
+        resources, you will add logic to the ‘Find all Hotels’
+        resource using policies.
 
-> The goal is to have the proxy perform a geolocation query against our
-> ‘hotels’ BaaS data collection to return results within a certain
-> radius of a zipcode (zipcode and radius both being query parameters
-> provided when calling the ‘/v1/{your\_initials}\_hotels’ API).
->
-> API BaaS supports the ability to retrieve entities within a specified
-> distance of any geocoordinate based on its location property:
->
-> location within &lt;distance\_in\_meters&gt; of &lt;latitude&gt;,
-> &lt;longitude&gt;
->
-> As you can see, you need to provide the latitude and longitude
-> information to perform the query.
->
-> For mobile applications meant for smartphones, obtaining geocode
-> information is easy and can be provided directly as part of an API
-> call. For this lesson, assume that this API interface is being created
-> for devices and applications that cannot easily provide the
-> geocoordinate information, but simply requests the user to provide the
-> zipcode. In such a situation, the first thing is to obtain the
-> geo-coordinates for the zipcode provided before doing further
-> processing. Below are the high level steps to implement this in the
-> proxy:
+The goal is to have the proxy perform a geolocation query against our
+‘hotels’ BaaS data collection to return results within a certain
+radius of a zipcode (zipcode and radius both being query parameters
+provided when calling the ‘/v1/{your\_initials}\_hotels’ API).
+
+API BaaS supports the ability to retrieve entities within a specified
+distance of any geocoordinate based on its location property:
+
+```
+location within &lt;distance\_in\_meters&gt; of &lt;latitude&gt;,
+&lt;longitude&gt;
+```
+
+As you can see, you need to provide the latitude and longitude
+information to perform the query.
+
+For mobile applications meant for smartphones, obtaining geocode
+information is easy and can be provided directly as part of an API
+call. For this lesson, assume that this API interface is being created
+for devices and applications that cannot easily provide the
+geocoordinate information, but simply requests the user to provide the
+zipcode. In such a situation, the first thing is to obtain the
+geo-coordinates for the zipcode provided before doing further
+processing. Below are the high level steps to implement this in the
+proxy:
 
 -   Retrieve the zipcode and radius from the request query parameters
-
 -   Use the zipcode as an input parameter to call an external service
-    > that converts the zipcode to the geo-coordinates
-
+    that converts the zipcode to the geo-coordinates
 -   Extract the latitude and longitude geo-coordinates information from
-    > the response of the external service call
-
+    the response of the external service call
 -   Use the geo-coordinates to create the geo-location query
-
 -   Add the location query as a query parameter before the target BaaS
-    > service is invoked
+    service is invoked
 
-> A pictorial representation of the logic is depicted below:
+A pictorial representation of the logic is depicted below:
 
-![](./media/image14.png){width="7.097010061242345in"
-height="1.5885422134733158in"}
+![](./media/image14.png)
 
-> For the service callout to convert the zipcode to the geocoordinate,
-> you will use the [*Google GeoCoding
-> API*](https://developers.google.com/maps/documentation/geocoding/)
-> ([*https://developers.google.com/maps/documentation/geocoding/*](https://developers.google.com/maps/documentation/geocoding/)).
->
-> Now let’s implement the policies.
+For the service callout to convert the zipcode to the geocoordinate,
+you will use the [*Google GeoCoding
+API*](https://developers.google.com/maps/documentation/geocoding/)
+([*https://developers.google.com/maps/documentation/geocoding/*](https://developers.google.com/maps/documentation/geocoding/)).
 
-a.  Switch to the ‘Develop’ tab of the API Proxy
+Now let’s implement the policies.
 
-b.  From the ‘Navigator’ pane, select ‘Proxy Endpoints → Default → Find
-    > all Hotels’
+1)  Switch to the ‘Develop’ tab of the API Proxy
+2)  From the ‘Navigator’ pane, select ‘Proxy Endpoints → Default → Find
+    all Hotels’
 
-<!-- -->
 
-1)  **Using Assign Message Policy to prepare the service callout
-    > request**
+3)  **Using Assign Message Policy** to prepare the service callout
+    request
 
-<!-- -->
 
-a)  Click on Proxy Endpoints &gt; PreFlow.
+    a.  Click on Proxy Endpoints &gt; PreFlow.
 
-> ![](./media/image09.png){width="2.0707075678040243in"
-> height="1.8731485126859142in"}
->
-> b\) Click on “**+ Step**” on the Request Flow
->
-> ![](./media/image07.png){width="3.6770833333333335in"
-> height="2.3229166666666665in"}
+> ![](./media/image09.png)
 
-c\) Select the ‘Assign Message’ policy with the following properties:
+    b. Click on “**+ Step**” on the Request Flow
 
-> ![](./media/image13.png){width="1.7126815398075241in"
-> height="2.369792213473316in"}
+> ![](./media/image07.png)
 
--   Policy Display Name: **Create Geo Coding Request**
+    c. Select the ‘Assign Message’ policy with the following properties:
 
--   Policy Name: **Create-Geo-Coding-Request**
+> ![](./media/image13.png)
 
-a.  Click on the ‘Create Geo Coding Request’ policy in the pipeline and
-    > modify the XML configuration in the ‘Code:
-    > Create-Geo-Coding-Request’ section, which appears underneath the
-    > Map as follows:
+-  Policy Display Name: **Create Geo Coding Request**
+-  Policy Name: **Create-Geo-Coding-Request**
 
-  -------------------------------------------------------------------------------------------------------------
+    d. Click on the ‘Create Geo Coding Request’ policy in the pipeline and
+      modify the XML configuration in the ‘Code:
+      Create-Geo-Coding-Request’ section, which appears underneath the
+      Map as follows:
+
+  ```
   &lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
-
   &lt;AssignMessage async="false" continueOnError="false" enabled="true" name="Create-Geo-Coding-Request"&gt;
-
   &lt;DisplayName&gt;Create Geo Coding Request&lt;/DisplayName&gt;
-
   &lt;AssignTo createNew="true" type="request"&gt;GeoCodingRequest&lt;/AssignTo&gt;
-
   &lt;Set&gt;
-
   &lt;QueryParams&gt;
-
   &lt;QueryParam name="address"&gt;{request.queryparam.zipcode}&lt;/QueryParam&gt;
-
   &lt;QueryParam name="region"&gt;US&lt;/QueryParam&gt;
-
   &lt;QueryParam name="sensor"&gt;false&lt;/QueryParam&gt;
-
   &lt;/QueryParams&gt;
-
   &lt;Verb&gt;GET&lt;/Verb&gt;
-
   &lt;/Set&gt;
-
   &lt;!-- Set variables for use in the flow --&gt;
-
   &lt;AssignVariable&gt;
-
   &lt;Name&gt;zipcode&lt;/Name&gt;
-
   &lt;Ref&gt;request.queryparam.zipcode&lt;/Ref&gt;
-
   &lt;/AssignVariable&gt;
-
   &lt;AssignVariable&gt;
-
   &lt;Name&gt;radius&lt;/Name&gt;
-
   &lt;Value&gt;0&lt;/Value&gt;
-
   &lt;Ref&gt;request.queryparam.radius&lt;/Ref&gt;
-
   &lt;/AssignVariable&gt;
-
   &lt;/AssignMessage&gt;
-  -------------------------------------------------------------------------------------------------------------
-  -------------------------------------------------------------------------------------------------------------
+  ```
 
-> *(You can find the policy xml*
-> [**here**](https://gist.github.com/prithpal/f3222b3f220c6fa18e13)*.
-> Click the “Raw” button and copy/paste into your policy editor).*
->
-> Here's a brief description of the elements in this policy. You can
-> read more about this policy in [Assign Message
-> policy](http://apigee.com/docs/api-services/reference/assign-message-policy).
->
-> **&lt;AssignMessage name&gt;** - Gives this policy a name. The name is
-> used when the policy is referenced in a flow.
->
-> **&lt;AssignTo&gt;** - Creates a named variable called
-> ’GeoCodingRequest’of type ‘Request’. This variable encapsulates the
-> request object that will be sent by the ServiceCallout policy.
->
-> **&lt;Set&gt;&lt;QueryParams&gt;** - Sets the query parameters that
-> are needed for the service callout API call. In this case, the Google
-> Geocoding API needs to know the location, which is expressed with a
-> zipcode. The API calling client supplies this information, and we
-> simply extract it here. The region and sensor parameters are by the
-> API, and we just hardcode it to certain values here.
->
-> **&lt;Verb&gt;** - In this case, we are making a simple GET request to
-> the API.
->
-> **&lt;AssignVariable&gt;** - zipcode and radius are new variables
-> being created to store values being passed to the API. In this
-> example, the variables will be accessed later in the proxy flow.
->
-> **Note**: The properties associated with the ‘Assign Message’ policy
-> could have been modified using the ‘Property Inspector’ panel that’s
-> presented in the ‘Develop’ tab on the right. Any changes made in the
-> ‘Code’ panel are reflected in the ‘Property Inspector’ panel and
-> vice-versa. We will use the ‘Property Inspector’ panel to set
-> properties for some of the policies as the lesson progresses.
+*(You can find the policy xml*
+[**here**](https://gist.github.com/prithpal/f3222b3f220c6fa18e13)*.
+Click the “Raw” button and copy/paste into your policy editor).*
 
-1)  **Using the Service Callout Policy to invoke the Google GeoCoding
+Here's a brief description of the elements in this policy. You can
+read more about this policy in [Assign Message
+policy](http://apigee.com/docs/api-services/reference/assign-message-policy).
+
+**&lt;AssignMessage name&gt;** - Gives this policy a name. The name is
+used when the policy is referenced in a flow.
+
+**&lt;AssignTo&gt;** - Creates a named variable called
+’GeoCodingRequest’of type ‘Request’. This variable encapsulates the
+request object that will be sent by the ServiceCallout policy.
+
+**&lt;Set&gt;&lt;QueryParams&gt;** - Sets the query parameters that
+are needed for the service callout API call. In this case, the Google
+Geocoding API needs to know the location, which is expressed with a
+zipcode. The API calling client supplies this information, and we
+simply extract it here. The region and sensor parameters are by the
+API, and we just hardcode it to certain values here.
+
+**&lt;Verb&gt;** - In this case, we are making a simple GET request to
+the API.
+
+**&lt;AssignVariable&gt;** - zipcode and radius are new variables
+being created to store values being passed to the API. In this
+example, the variables will be accessed later in the proxy flow.
+
+**Note**: The properties associated with the ‘Assign Message’ policy
+could have been modified using the ‘Property Inspector’ panel that’s
+presented in the ‘Develop’ tab on the right. Any changes made in the
+‘Code’ panel are reflected in the ‘Property Inspector’ panel and
+vice-versa. We will use the ‘Property Inspector’ panel to set
+properties for some of the policies as the lesson progresses.
+
+4)  **Using the Service Callout Policy to invoke the Google GeoCoding
     > API**
 
     a.  From the ‘New Policy’ drop-down, select the ‘Service Callout’
-        > policy and add it with the following properties:
+        policy and add it with the following properties:
 
         -   Policy Display Name: **Call Geo Coding API**
-
         -   Policy Name: **Call-Geo-Coding-API**
 
     b.  For the ‘Call Geo Coding API’ policy, change the values of the
-        > following properties in the ‘Property Inspector’:
+        following properties in the ‘Property Inspector’:
 
         -   Request variable: **GeocodingRequest**
-
         -   Response: **GeocodingResponse**
-
         -   URL: **http://maps.googleapis.com/maps/api/geocode/json**
 
-  ---------------------------------------------------------------------------------------------------------
+  ```
   &lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;\
   &lt;ServiceCallout async="false" continueOnError="false" enabled="true" name="Call-Geo-Coding-API"&gt;\
   &lt;DisplayName&gt;Call Geo Coding API&lt;/DisplayName&gt;\
@@ -293,422 +251,334 @@ a.  Click on the ‘Create Geo Coding Request’ policy in the pipeline and
   &lt;URL&gt;http://maps.googleapis.com/maps/api/geocode/json&lt;/URL&gt;\
   &lt;/HTTPTargetConnection&gt;\
   &lt;/ServiceCallout&gt;
-  ---------------------------------------------------------------------------------------------------------
-  ---------------------------------------------------------------------------------------------------------
+  ```
 
-> Here's a brief description of the elements that were modified in this
-> policy. You can read more about this policy in [Service Callout
-> policy](http://apigee.com/docs/api-services/reference/service-callout-policy).
->
-> **&lt;Request variable&gt;** - This is the variable ‘GeocodingRequest’
-> that was created in the AssignMessage policy in the previous step. It
-> encapsulates the request going to the Google Geocoding API.
->
-> **&lt;Response&gt;** - This element names a variable
-> ‘GeocodingResponse’ in which the response from the Google Geocoding
-> API will be stored. As you will see, this variable will be accessed
-> later by the ExtractVariables policy.
->
-> **&lt;HTTPTargetConnection&gt;&lt;URL&gt;** - Specifies the target URL
-> to be used by the service callout - in this case the URL of the Google
-> Geocoding API: ‘http://maps.googleapis.com/maps/api/geocode/json’
+Here's a brief description of the elements that were modified in this
+policy. You can read more about this policy in [Service Callout
+policy](http://apigee.com/docs/api-services/reference/service-callout-policy).
 
-1)  **Using the Extract Message Policy to parse the service callout
-    > response**
+**&lt;Request variable&gt;** - This is the variable ‘GeocodingRequest’
+that was created in the AssignMessage policy in the previous step. It
+encapsulates the request going to the Google Geocoding API.
+
+**&lt;Response&gt;** - This element names a variable
+‘GeocodingResponse’ in which the response from the Google Geocoding
+API will be stored. As you will see, this variable will be accessed
+later by the ExtractVariables policy.
+
+**&lt;HTTPTargetConnection&gt;&lt;URL&gt;** - Specifies the target URL
+to be used by the service callout - in this case the URL of the Google
+Geocoding API: ‘http://maps.googleapis.com/maps/api/geocode/json’
+
+5)  **Using the Extract Message Policy to parse the service callout
+    response**
 
     a.  From the ‘New Policy’ drop-down, select the ‘Extract Variables’
         > policy and add it with the following properties:
 
         -   Policy Display Name: **Extract Geo Codes**
-
         -   Policy Name: **Extract-Geo-Codes**
 
     b.  For the ‘Extract Geo Codes’ policy, change the XML configuration
-        > of the policy using the ‘Code: Extract Geo Codes’ panel as
-        > follows:
+        of the policy using the ‘Code: Extract Geo Codes’ panel as
+        follows:
 
-  --------------------------------------------------------------------------------------------------------
+  ```
   &lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
-
   &lt;ExtractVariables async="false" continueOnError="false" enabled="true" name="Extract-Geo-Codes"&gt;
-
   &lt;DisplayName&gt;Extract Geo Codes&lt;/DisplayName&gt;
-
   &lt;Source&gt;GeoCodingResponse&lt;/Source&gt;
-
   &lt;VariablePrefix&gt;geocodeResponse&lt;/VariablePrefix&gt;
-
   &lt;JSONPayload&gt;
-
   &lt;Variable name="latitude"&gt;
-
   &lt;JSONPath&gt;\$.results\[0\].geometry.location.lat&lt;/JSONPath&gt;
-
   &lt;/Variable&gt;
-
   &lt;Variable name="longitude"&gt;
-
   &lt;JSONPath&gt;\$.results\[0\].geometry.location.lng&lt;/JSONPath&gt;
-
   &lt;/Variable&gt;
-
   &lt;/JSONPayload&gt;
-
   &lt;/ExtractVariables&gt;
-  --------------------------------------------------------------------------------------------------------
-  --------------------------------------------------------------------------------------------------------
+  ```
 
-> *(You can find the policy xml*
-> [**here**](https://gist.github.com/prithpal/d97146f2c30160992256)*.
-> Click the “Raw” button and copy/paste into your policy editor).*
->
-> Here's a brief description of the elements that were modified in this
-> policy. You can read more about this policy in [Extract Variables
-> policy](http://apigee.com/docs/api-services/reference/extract-variables-policy).
->
-> **&lt;Source&gt;** - Specifies the response variable
-> ‘GeocodingResponse’ that we created in the ServiceCallout policy. This
-> is the variable from which this policy extracts data.
->
-> **&lt;VariablePrefix&gt;** - The variable prefix ‘geocodeResponse’
-> specifies a namespace for other variables created in this policy. The
-> prefix can be any name, except for the reserved names defined by the
-> [Apigee Edge Platform's predefined
-> variables](http://mktg-dev.apigee.com/docs/api-platform/api/variables-reference).
->
-> **&lt;JSONPayload&gt;** - This element retrieves the response data
-> that is of interest and puts it into named variables. In fact, the
-> Google Geocoding API returns much more information than latitude and
-> longitude. However, these are the only values needed for these
-> lessons. You can see a complete rendering of the JSON in the [Google
-> Geocoding API
-> documentation](https://developers.google.com/maps/documentation/geocoding/).
-> The values of geometry.location.lat and geometry.location.lng are
-> simply two of the many fields in the returned JSON object.
->
-> It may not be obvious, but it's important to see that ExtractVariables
-> produces two variables whose names consist of the variable prefix
-> (geocodeResponse) and the actual variable names that are specified in
-> the policy. These variables are stored in the API proxy and will be
-> available to other policies within the proxy flow, as you will see.
-> The variables are: geocodeResponse.latitude &
-> geocodeResponse.longitude
+*(You can find the policy xml*
+[**here**](https://gist.github.com/prithpal/d97146f2c30160992256)*.
+Click the “Raw” button and copy/paste into your policy editor).*
 
-1)  **Using the Javascript Policy to create the Location Query to send
-    > to the BaaS target endpoint**
+Here's a brief description of the elements that were modified in this
+policy. You can read more about this policy in [Extract Variables
+policy](http://apigee.com/docs/api-services/reference/extract-variables-policy).
+
+**&lt;Source&gt;** - Specifies the response variable
+‘GeocodingResponse’ that we created in the ServiceCallout policy. This
+is the variable from which this policy extracts data.
+
+**&lt;VariablePrefix&gt;** - The variable prefix ‘geocodeResponse’
+specifies a namespace for other variables created in this policy. The
+prefix can be any name, except for the reserved names defined by the
+[Apigee Edge Platform's predefined
+variables](http://mktg-dev.apigee.com/docs/api-platform/api/variables-reference).
+
+**&lt;JSONPayload&gt;** - This element retrieves the response data
+that is of interest and puts it into named variables. In fact, the
+Google Geocoding API returns much more information than latitude and
+longitude. However, these are the only values needed for these
+lessons. You can see a complete rendering of the JSON in the [Google
+Geocoding API
+documentation](https://developers.google.com/maps/documentation/geocoding/).
+The values of geometry.location.lat and geometry.location.lng are
+simply two of the many fields in the returned JSON object.
+
+It may not be obvious, but it's important to see that ExtractVariables
+produces two variables whose names consist of the variable prefix
+(geocodeResponse) and the actual variable names that are specified in
+the policy. These variables are stored in the API proxy and will be
+available to other policies within the proxy flow, as you will see.
+The variables are: geocodeResponse.latitude &
+geocodeResponse.longitude
+
+6)  **Using the Javascript Policy to create the Location Query to send
+    to the BaaS target endpoint**
 
     a.  From the ‘New Policy’ drop-down, select the ‘Javascript’ policy
-        > and add it with the following properties:
+        and add it with the following properties:
 
         -   Policy Display Name: **Create Location Query**
-
         -   Policy Name: **Create-Location-Query**
-
         -   Script File: **Create new script**
-
         -   Script Name: **Create-Location-Query.js**
 
     b.  Once the policy has been added, from the ‘Navigator’ panel go to
-        > ‘Scripts → Javascript’ section and select the
-        > ‘Create-Location-Query.js’ script file
+        ‘Scripts → Javascript’ section and select the
+        ‘Create-Location-Query.js’ script file
 
     c.  Add the following code to the ‘Create-Location-Query.js’ script
-        > in the ‘Code: Create Location Query’ panel:
+        in the ‘Code: Create Location Query’ panel:
 
-  ---------------------------------------------------------------------------------
+  ```
   var latitude = context.getVariable("geocodeResponse.latitude"),
-
   longitude = context.getVariable("geocodeResponse.longitude"),
-
   radius = context.getVariable("radius");
 
   // set default (0 meters)
-
   radius = (radius == "") ? "0" : radius;
 
   // set BaaS query
-
   var baasQL = "location within " + radius + " of " + latitude + "," + longitude;
-
   context.setVariable("baasQL", baasQL);
-  ---------------------------------------------------------------------------------
-  ---------------------------------------------------------------------------------
+  ```
 
-> *(You can find the javascript file content*
-> [**here**](https://gist.github.com/prithpal/680ca505dbacc267d1dd)*.
-> Click the “Raw” button and copy/paste into your policy editor).*
->
-> This Javascript code uses the ‘context’ object, which is part of the
-> [Apigee Edge Javascript object
-> model](http://apigee.com/docs/api-services/reference/javascript-object-model)
-> to retrieve 3 variables - geocodeResponse.latitude,
-> geoCodeResponse.latitude, radius - that were set by policies earlier
-> in the flow.
->
-> It sets a default in case the variables are empty strings, creates a
-> new query variable called ‘baasQL’ using the API BaaS query language
-> syntax for a location query, and adds the ‘baasQL’ variable to the
-> ‘context’ object to be used later in the flow by the Assign Message
-> policy to set the query parameter before the API BaaS target endpoint
-> is invoked.
->
-> You can read more about this policy in [Javascript
-> policy](http://apigee.com/docs/api-services/reference/javascript-policy).
+*(You can find the javascript file content*
+[**here**](https://gist.github.com/prithpal/680ca505dbacc267d1dd)*.
+Click the “Raw” button and copy/paste into your policy editor).*
 
-1)  **Using the Assign Message Policy to add the Location Query to the
-    > query parameter before BaaS target endpoint invocation**
+This Javascript code uses the ‘context’ object, which is part of the
+[Apigee Edge Javascript object
+model](http://apigee.com/docs/api-services/reference/javascript-object-model)
+to retrieve 3 variables - geocodeResponse.latitude,
+geoCodeResponse.latitude, radius - that were set by policies earlier
+in the flow.
+
+It sets a default in case the variables are empty strings, creates a
+new query variable called ‘baasQL’ using the API BaaS query language
+syntax for a location query, and adds the ‘baasQL’ variable to the
+‘context’ object to be used later in the flow by the Assign Message
+policy to set the query parameter before the API BaaS target endpoint
+is invoked.
+
+You can read more about this policy in [Javascript
+policy](http://apigee.com/docs/api-services/reference/javascript-policy).
+
+7)  **Using the Assign Message Policy to add the Location Query to the
+    query parameter before BaaS target endpoint invocation**
 
     a.  From the ‘New Policy’ drop-down, select the ‘Assign Message’
-        > policy and add it with the following properties:
+        policy and add it with the following properties:
 
         -   Policy Display Name: **Set Query Parameters**
-
         -   Policy Name: **Set-Query-Parameters**
 
     b.  For the ‘Set Query Parameters’ policy, change the XML
-        > configuration of the policy using the ‘Code: Set Query
-        > Parameters’ panel as follows:
+        configuration of the policy using the ‘Code: Set Query
+        Parameters’ panel as follows:
 
-  --------------------------------------------------------------------------------------------------------
+  ```
   &lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
-
   &lt;AssignMessage async="false" continueOnError="false" enabled="true" name="Set-Query-Parameters"&gt;
-
   &lt;DisplayName&gt;Set Query Parameters&lt;/DisplayName&gt;
-
   &lt;Remove&gt;
-
   &lt;QueryParams&gt;
-
   &lt;QueryParam name="zipcode"/&gt;
-
   &lt;QueryParam name="radius"/&gt;
-
   &lt;/QueryParams&gt;
-
   &lt;/Remove&gt;
-
   &lt;Set&gt;
-
   &lt;QueryParams&gt;
-
   &lt;QueryParam name="ql"&gt;{baasQL}&lt;/QueryParam&gt;
-
   &lt;/QueryParams&gt;
-
   &lt;/Set&gt;
-
   &lt;/AssignMessage&gt;
-  --------------------------------------------------------------------------------------------------------
-  --------------------------------------------------------------------------------------------------------
+  ```
 
-> *(You can find policy xml*
-> [**here**](https://gist.github.com/prithpal/a2057c62e9244db35e32)*.
-> Click the “Raw” button and copy/paste into your policy editor).*
->
-> Here's a brief description of the elements that were modified in this
-> policy. You can read more about this policy in [Extract Variables
-> policy](http://apigee.com/docs/api-services/reference/extract-variables-policy).
->
-> **&lt;Remove&gt;&lt;QueryParameters&gt;** - Removes the query
-> parameters (‘zipcode’ and ‘radius’) that were sent in the original
-> client request to the API Proxy.
->
-> **&lt;Set&gt;&lt;QueryParameters&gt;** - Adds a new query parameter
-> (‘ql’) with the variable ‘baasQL’ providing the actual value. Note
-> that the ‘baasQL’ variable was set by the previous Javascript policy
-> as part of the ‘context’ object.
+*(You can find policy xml*
+[**here**](https://gist.github.com/prithpal/a2057c62e9244db35e32)*.
+Click the “Raw” button and copy/paste into your policy editor).*
 
-1)  **Testing the API Proxy with the location query after deploying
-    > changes**
+Here's a brief description of the elements that were modified in this
+policy. You can read more about this policy in [Extract Variables
+policy](http://apigee.com/docs/api-services/reference/extract-variables-policy).
 
-> All the policies depicted in the diagram earlier in this lesson for
-> the request flow have been implemented. Your ‘Get Hotels’ Proxy should
-> look as follows:
->
-> ![](./media/image16.png){width="5.510321522309711in"
-> height="2.4218755468066493in"}
->
-> Though you could have tested each policy iteratively as they were
-> being added to the flow, you have sufficient logic in the flow to test
-> the behavior of the flow to see if the results being returned from the
-> API BaaS are as expected.
+**&lt;Remove&gt;&lt;QueryParameters&gt;** - Removes the query
+parameters (‘zipcode’ and ‘radius’) that were sent in the original
+client request to the API Proxy.
 
-a.  Click on the ‘Save’ button to save and deploy the changes to the
-    > ‘{your\_initials}\_hotels’ API Proxy
+**&lt;Set&gt;&lt;QueryParameters&gt;** - Adds a new query parameter
+(‘ql’) with the variable ‘baasQL’ providing the actual value. Note
+that the ‘baasQL’ variable was set by the previous Javascript policy
+as part of the ‘context’ object.
 
-> ![](./media/image17.png){width="2.2083333333333335in"
-> height="0.78125in"}
+8)  **Testing the API Proxy with the location query after deploying
+    changes**
 
-a.  Wait for the ‘Successfully saved API Proxy’ message to appear and
-    > verify that your proxy is deployed to the ‘test’ environment
+All the policies depicted in the diagram earlier in this lesson for
+the request flow have been implemented. Your ‘Get Hotels’ Proxy should
+look as follows:
 
-b.  Go to the ‘Trace’ tab and start a trace session by clicking the
-    > ‘Start Trace Session’ button
+> ![](./media/image16.png)
 
-c.  Use Postman to test the ‘/GET hotels’ request with the following
-    > query parameters combinations and review the results being
-    > returned
+Though you could have tested each policy iteratively as they were
+being added to the flow, you have sufficient logic in the flow to test
+the behavior of the flow to see if the results being returned from the
+API BaaS are as expected.
 
+    a.  Click on the ‘Save’ button to save and deploy the changes to the
+        ‘{your\_initials}\_hotels’ API Proxy
+
+> ![](./media/image17.png)
+
+    c.  Wait for the ‘Successfully saved API Proxy’ message to appear and
+        verify that your proxy is deployed to the ‘test’ environment
+
+    d.  Go to the ‘Trace’ tab and start a trace session by clicking the
+        ‘Start Trace Session’ button
+
+    e.  Use Postman to test the ‘/GET hotels’ request with the following
+        query parameters combinations and review the results being
+        returned
     -   zipcode=98101&radius=1000
-
     -   zipcode=98101&radius=200
-
     -   zipcode=94105&radius=400
-
     -   No query parameters
 
-> Note : Before invoking the API, change the URL to point your API i.e.
-> {your\_initials}\_hotels.
->
-> Notice that the responses being returned by the API BaaS for the
-> various query parameter combinations are different as the
-> location-based query finds hotels that match the criteria.
+Note : Before invoking the API, change the URL to point your API i.e.
+{your\_initials}\_hotels.
 
-a.  Switch back to the ‘Trace’ tab in the Apigee Edge Management UI.
-    > Review the executed policies and associated headers & variable
-    > data to better understand the flow
+Notice that the responses being returned by the API BaaS for the
+various query parameter combinations are different as the
+location-based query finds hotels that match the criteria.
 
-b.  Note that when the proxy is called without any query parameters now,
-    > it returns an fault indicating that the ‘zipcode’ query parameter
-    > could not be resolved
+    f.  Switch back to the ‘Trace’ tab in the Apigee Edge Management UI.
+        Review the executed policies and associated headers & variable
+        data to better understand the flow
+
+    g.  Note that when the proxy is called without any query parameters now,
+        it returns an fault indicating that the ‘zipcode’ query parameter
+        could not be resolved
 
 <!-- -->
 
-1)  **Modifying the response sent to the API client**
+9)  **Modifying the response sent to the API client**
 
-> Many times the response coming from the backend target endpoint is not
-> exactly what you want to send to the calling client. The response may
-> need to be transformed, filtered, or augmented. For example, as you
-> review the response being returned from the API BaaS for this lesson,
-> you will notice that it has several metadata attributes (e.g.
-> ‘application,’ ‘path,’ ‘organization,’ ‘applicationName,’ etc.) that
-> you may want to filter out prior to sending the response. You will use
-> a simple Javascript policy, similar to the one used before to create
-> the location query variable, to create a customized response.
+Many times the response coming from the backend target endpoint is not
+exactly what you want to send to the calling client. The response may
+need to be transformed, filtered, or augmented. For example, as you
+review the response being returned from the API BaaS for this lesson,
+you will notice that it has several metadata attributes (e.g.
+‘application,’ ‘path,’ ‘organization,’ ‘applicationName,’ etc.) that
+you may want to filter out prior to sending the response. You will use
+a simple Javascript policy, similar to the one used before to create
+the location query variable, to create a customized response.
 
-a.  Go to the ‘Develop’ tab of your proxy in the Apigee Edge
-    > Management UI.
+    a.  Go to the ‘Develop’ tab of your proxy in the Apigee Edge
+        Management UI.
 
-b.  From the ‘New Policy’ drop-down, select the ‘Javascript’ policy and
-    > add it with the following properties:
+    b.  From the ‘New Policy’ drop-down, select the ‘Javascript’ policy and
+        add it with the following properties:
+        -   Policy Display Name: **Create Final Response**
+        -   Policy Name: **Create-Final-Response**
+        -   Script File: **Create new script**
+        -   Script Name: **Create-Final-Response.js**
 
-    -   Policy Display Name: **Create Final Response**
+    c.  Add the following code to the ‘Create-Final-Response.js’ script:
 
-    -   Policy Name: **Create-Final-Response**
+      ```
+      var hotelsResponse = context.getVariable("response.content"),
+      zipcode = context.getVariable("zipcode"),
+      radius = context.getVariable("radius"),
+      finalResponse = {};
 
-    -   Script File: **Create new script**
+      // initialize hotels response
+      finalResponse.hotels = {};
+      // add queryparams used as part of the hotels response
+      finalResponse.hotels.queryparams = JSON.parse('{ ' + '"zipcode" : "' + zipcode + '", "radius" : "' + radius + '" }');
+      // add the hotels response
 
-    -   Script Name: **Create-Final-Response.js**
+      if (hotelsResponse != null) {
+      var hotelsJSON = JSON.parse(hotelsResponse);
+      finalResponse.hotels.resultsMetadata = {};
 
-c.  Add the following code to the ‘Create-Final-Response.js’ script:
+      // set results count
+      finalResponse.hotels.resultsMetadata.count = 0;
+      if (hotelsJSON.count != null && hotelsJSON.count != "") {
+      finalResponse.hotels.resultsMetadata.count = hotelsJSON.count;
+      }
 
-  -----------------------------------------------------------------------------------------------------------------------
-  var hotelsResponse = context.getVariable("response.content"),
+      // set current results cursor
+      if (hotelsJSON.params != null && hotelsJSON.params.cursor != null && hotelsJSON.params.cursor != "") {
+      finalResponse.hotels.resultsMetadata.currentCursor = hotelsJSON.params.cursor\[0\];
+      }
 
-  zipcode = context.getVariable("zipcode"),
+      // set next results cursor
+      if (hotelsJSON.cursor != null && hotelsJSON.cursor != "") {
+      finalResponse.hotels.resultsMetadata.nextCursor = hotelsJSON.cursor;
+      }
 
-  radius = context.getVariable("radius"),
+      // set the list of hotels
+      finalResponse.hotels.entities = hotelsJSON.entities;
+      }
 
-  finalResponse = {};
+      // update the response that will be returned to the client
+      context.setVariable("response.content", JSON.stringify(finalResponse));
+      ```
 
-  // initialize hotels response
+    *(You can find the javascript file content*
+    [**here**](https://gist.github.com/prithpal/69c870bc5971d067fb8d)*.
+    Click the “Raw” button and copy/paste into your policy editor).*
 
-  finalResponse.hotels = {};
+    The above script creates a customized JSON response by merging
+    information from the query parameters received in the original request
+    and certain attributes from the API BaaS response. The final JSON
+    format being created and returned is as follows:
 
-  // add queryparams used as part of the hotels response
+      ```
+      {
+      “hotels” : {
+      “queryparams” : {
+      “zipcode” : “zip code value”,
+      “radius” : “radius value”
+      },
+      “resultsMetadata” : {
+      “count” : count value,
+      “currentCursor” : “current cursor value”,
+      “nextCursor” : “next cursor value”
+      }
+      “entities” : \[Array of hotel entities\]
+      }
+      }
+      ```
 
-  finalResponse.hotels.queryparams = JSON.parse('{ ' + '"zipcode" : "' + zipcode + '", "radius" : "' + radius + '" }');
-
-  // add the hotels response
-
-  if (hotelsResponse != null) {
-
-  var hotelsJSON = JSON.parse(hotelsResponse);
-
-  finalResponse.hotels.resultsMetadata = {};
-
-  // set results count
-
-  finalResponse.hotels.resultsMetadata.count = 0;
-
-  if (hotelsJSON.count != null && hotelsJSON.count != "") {
-
-  finalResponse.hotels.resultsMetadata.count = hotelsJSON.count;
-
-  }
-
-  // set current results cursor
-
-  if (hotelsJSON.params != null && hotelsJSON.params.cursor != null && hotelsJSON.params.cursor != "") {
-
-  finalResponse.hotels.resultsMetadata.currentCursor = hotelsJSON.params.cursor\[0\];
-
-  }
-
-  // set next results cursor
-
-  if (hotelsJSON.cursor != null && hotelsJSON.cursor != "") {
-
-  finalResponse.hotels.resultsMetadata.nextCursor = hotelsJSON.cursor;
-
-  }
-
-  // set the list of hotels
-
-  finalResponse.hotels.entities = hotelsJSON.entities;
-
-  }
-
-  // update the response that will be returned to the client
-
-  context.setVariable("response.content", JSON.stringify(finalResponse));
-  -----------------------------------------------------------------------------------------------------------------------
-  -----------------------------------------------------------------------------------------------------------------------
-
-> *(You can find the javascript file content*
-> [**here**](https://gist.github.com/prithpal/69c870bc5971d067fb8d)*.
-> Click the “Raw” button and copy/paste into your policy editor).*
->
-> The above script creates a customized JSON response by merging
-> information from the query parameters received in the original request
-> and certain attributes from the API BaaS response. The final JSON
-> format being created and returned is as follows:
-
-  -------------------------------------------
-  {
-
-  “hotels” : {
-
-  “queryparams” : {
-
-  “zipcode” : “zip code value”,
-
-  “radius” : “radius value”
-
-  },
-
-  “resultsMetadata” : {
-
-  “count” : count value,
-
-  “currentCursor” : “current cursor value”,
-
-  “nextCursor” : “next cursor value”
-
-  }
-
-  “entities” : \[Array of hotel entities\]
-
-  }
-
-  }
-  -------------------------------------------
-  -------------------------------------------
-
-a.  Save the changes to the API Proxy, wait for it to successfully
-    > deploy and test again using Postman as described in Step 8 earlier
-    > in the lesson.
+    d.  Save the changes to the API Proxy, wait for it to successfully
+        deploy and test again using Postman as described in Step 8 earlier
+        in the lesson.
 
 **Summary**
 
