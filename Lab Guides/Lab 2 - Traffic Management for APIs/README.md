@@ -41,14 +41,18 @@ more responsive with requests satisfied from the cache, which is closer to the c
 
 The various caching policies supported by Apigee Edge are:
 
-* Response Cache Policy: Uses a cache to store and retrieve data from a backend resource, reducing the number of requests to the resource. For policy reference information, see [Response Cache policy](http://apigee.com/docs/api-services/reference/response-cache-policy).
+####Response Cache Policy
+Uses a cache to store and retrieve data from a backend resource, reducing the number of requests to the resource. For policy reference information, see [Response Cache policy](http://apigee.com/docs/api-services/reference/response-cache-policy).
 
-* Populate Cache Policy: Use the PopulateCache policy to write data to the cache. For policy reference information, see [Populate Cache policy](http://apigee.com/docs/api-services/reference/populate-cache-policy).
+####Populate Cache Policy
+Use the PopulateCache policy to write data to the cache. For policy reference information, see [Populate Cache policy](http://apigee.com/docs/api-services/reference/populate-cache-policy).
 
-* Lookup Cache Policy: You can retrieve cached values with the LookupCache policy. For policy reference information, see [LookupCache
+####Lookup Cache Policy
+You can retrieve cached values with the LookupCache policy. For policy reference information, see [LookupCache
 policy](http://apigee.com/docs/api-services/reference/lookup-cache-policy).
 
-* Invalidate Cache Policy: Configures how the cached values should be purged from the cache. For policy reference information, see
+####Invalidate Cache Policy
+Configures how the cached values should be purged from the cache. For policy reference information, see
 [Invalidate Cache policy](http://apigee.com/docs/api-services/reference/invalidate-cache-policy).
 
 ##Objectives
@@ -63,15 +67,17 @@ created in the previous lesson.
 * **Adding a Spike Arrest Policy**
     * Go to the Apigee Edge Management UI browser tab.
     * Select your API proxy.
-    * Click on the develop tab
+    * Click on the develop tab.
 ![](./media/image17.png)
     * Click on Proxy Endpoints &gt; PreFlow.
 ![](./media/image19.png)
     * Click on “**+ Step**” on the Request Flow.
 ![](./media/image32.png)
     * Select the ‘Spike Arrest’ policy with the following properties:
-    > - Display Name: **Spike Arrest 10pm**
-    > - Name: **Spike-Arrest-10pm**
+    
+      > Display Name: **Spike Arrest 10pm**
+
+      > Name: **Spike-Arrest-10pm**
 
 ![](./media/image22.png)
 
@@ -81,12 +87,18 @@ Proxy.
 ![](./media/image20.png)
 
 **NOTE:** The value was changed from 30 per second to 10 per minute.
-    
-    * Save the changes to the proxy and ensure that it is deployed successfully to the ‘test’ environment.
-
-*(You can find the policy xml*
-[**here**](https://gist.github.com/prithpal/08db967d0564288d9016)*.
-Click the “Raw” button and copy/paste into your policy editor).*
+   
+   * Save the changes to the proxy and ensure that it is deployed successfully to the ‘test’ environment. Your configuration should look like this -
+```
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SpikeArrest async="false" continueOnError="false" enabled="true" name="Spike-Arrest-10pm">
+    <DisplayName>Spike Arrest 10pm</DisplayName>
+    <Properties/>
+    <Identifier ref="request.header.some-header-name"/>
+    <MessageWeight ref="request.header.weight"/>
+    <Rate>10pm</Rate>
+</SpikeArrest>
+```
 
 Think of Spike Arrest as a way to generally protect against traffic
 spikes (system wide) rather than as a way to limit traffic to a
@@ -120,103 +132,51 @@ or about 1 request allowed every 100 milliseconds . A second
 request inside of 100ms will fail. Also, an 11th request within a
 second will fail.
 
-2)  ****Testing the Spike Arrest Policy****
+* **Testing the Spike Arrest Policy** Use Postman to quickly send more than 10 requests in a minute and observe that certain requests will receive an error with the errorCode “policies.ratelimit.SpikeArrestViolation”
 
-Use Postman to quickly send more than 10 requests in a minute and
-observe that certain requests will receive an error with the errorCode
-“policies.ratelimit.SpikeArrestViolation”
+* **Adding Response Cache Policy** Reduce external service calls, reduce network traffic and improve performance
+   * Go to the Apigee Edge Management UI browser tab.
+   * Select your API proxy.
+   * Click on Proxy Endpoints -&gt; PreFlow
+![](./media/image23.png)
+   * Click on “+ Step” on the Request Flow.
+![](./media/image16.png)
+   * Select the ‘Response Cache’ policy with the following properties:
+   
+   >  Policy Display Name: **Cache Hotels Data**
+   >  Policy Name: **Cache-Hotels-Data**
+![](./media/image26.png)
 
-3)  ****Adding Response Cache Policy**** 
-   Reduce external service calls, reduce network traffic and improve 
-   performance
+Once the ‘Cache Hotels Data’ policy appears, review its properties (click on the policy). Since everything else except the name was left as a default, you will notice that the Expiration Timeout in Seconds is set to 3600 (i.e. 1 hour).
+![](./media/image24.png)
 
-    a.  Go to the Apigee Edge Management UI browser tab
-    b.  Select your API proxy
-    c.  Click on Proxy Endpoints -&gt; PreFlow
+The timeout property along with other properties should be modified as per your use cases. For policy reference information, see [ResponseCachepolicy](http://apigee.com/docs/api-services/reference/response-cache-policy).
 
-> ![](./media/image23.png)
+The Response Cache policy needs a Cache Resource that can be used to cache the data. Apigee Edge provides a default cache resource that can be used for quick testing, which is what is being used in this lesson. The Cache Resource to be used by Response Cache policies should also be created and configured as per your use cases. For Cache Resource configuration information, see [Manage Caches for an Environment](http://apigee.com/docs/api-services/content/manage-caches-environment).
+   * Your Proxy Endpoints → Default → PreFlow should look as follows:
+![](./media/image25.png)
+   * Your Target Endpoints → Default → PostFlow should look as follows:
+![](./media/image27.png)
+   * Save the changes to the API Proxy, wait for it to successfully deploy.
+* **Testing the Response Cache Policy**
+   * Start the API Trace and send a test ‘/GET hotels’ request from Postman with the following query parameters:
+   
+   > zipcode=98101&radius=200
 
-    d.  Click on “+ Step” on the Request Flow
-
-> ![](./media/image16.png)
-
-    e.  Select the ‘Response Cache’ policy with the following properties:
-    -   Policy Display Name: **Cache Hotels Data**
-    -   Policy Name: **Cache-Hotels-Data**
-> ![](./media/image26.png)
-
-Once the ‘Cache Hotels Data’ policy appears, review its properties
-(click on the policy). Since everything else except the name was left
-as a default, you will notice that the Expiration Timeout in Seconds
-is set to 3600 (i.e. 1 hour).
-
-> ![](./media/image24.png)
-
-The timeout property along with other properties should be modified as
-per your use cases. For policy reference information, see [Response
-Cache
-policy](http://apigee.com/docs/api-services/reference/response-cache-policy).
-
-The Response Cache policy needs a Cache Resource that can be used to
-cache the data. Apigee Edge provides a default cache resource that can
-be used for quick testing, which is what is being used in this lesson.
-The Cache Resource to be used by Response Cache policies should also
-be created and configured as per your use cases. For Cache Resource
-configuration information, see [Manage Caches for an
-Environment](http://apigee.com/docs/api-services/content/manage-caches-environment).
-
-    f.  Your Proxy Endpoints → Default → PreFlow should look as follows:
-
-> ![](./media/image25.png)
-
-    g.  Your Target Endpoints → Default → PostFlow should look as follows:
-
-> ![](./media/image27.png)
-
-    h.  Save the changes to the API Proxy, wait for it to successfully
-        deploy
-
-<!-- -->
-
-4)  ****Testing the Response Cache Policy****
-
-    a.  Start the API Trace and send a test ‘/GET hotels’ request from
-        Postman with the following query parameters:
-        > zipcode=98101&radius=200
-
-**NOTE:** Before invoking, please change the URL to point to your API
-proxy.
+**NOTE:** Before invoking, please change the URL to point to your API proxy.
 
  <span id="h.3znysh7" class="anchor"></span>
-
-    b.  Wait for 6 to 10 seconds (to avoid the Spike Arrest policy from
-        stopping your requests) and send the same request again from
-        Postman
-
-    c.  Go back to the Trace view and review the transaction map of both the
-        requests including the overall elapsed time to process both
-        requests
+      * Wait for 6 to 10 seconds (to avoid the Spike Arrest policy from stopping your requests) and send the same request again from Postman.
+      * Go back to the Trace view and review the transaction map of both the requests including the overall elapsed time to process both requests.
 
 The first transaction map should look as follows:
-
-> ![](./media/image28.png)
+![](./media/image28.png)
 
 The second execution flow should look as follows:
 
-> ![](./media/image29.png)
+![](./media/image29.png)
 
-After configuring the Response Cache policy, as expected, after the
-initial request, the second and all other requests for the next 300
-seconds will be served from the cache and hence avoid executing any
-other policies. Since the service callout, target service and other
-transformation policies are not executed, the overall transaction time
-has also dropped significantly.
+After configuring the Response Cache policy, as expected, after the initial request, the second and all other requests for the next 300 seconds will be served from the cache and hence avoid executing any other policies. Since the service callout, target service and other transformation policies are not executed, the overall transaction time has also dropped significantly.
 
-**Summary**
-
-That completes this hands-on lesson. You learned how to use the Spike
-Arrest to protect the environment from traffic spikes and to use the
-Response Cache policy to provide a better overall experience for the API
-consumer while reducing network traffic. Obviously like any other
-policy, these policies must be used appropriately based upon your use
-cases.
+##Summary
+That completes this hands-on lesson. You learned how to use the Spike Arrest to protect the environment from traffic spikes and to use the Response Cache policy to provide a better overall experience for the API consumer while reducing network traffic. Obviously like any other policy, these policies must be used appropriately based upon your use cases.
