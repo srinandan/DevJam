@@ -142,9 +142,11 @@ second will fail.
    * Click on “+ Step” on the Request Flow.
 ![](./media/image16.png)
    * Select the ‘Response Cache’ policy with the following properties:
-   
+
    >  Policy Display Name: **Cache Hotels Data**
+   
    >  Policy Name: **Cache-Hotels-Data**
+
 ![](./media/image26.png)
 
 Once the ‘Cache Hotels Data’ policy appears, review its properties (click on the policy). Since everything else except the name was left as a default, you will notice that the Expiration Timeout in Seconds is set to 3600 (i.e. 1 hour).
@@ -158,16 +160,17 @@ The Response Cache policy needs a Cache Resource that can be used to cache the d
    * Your Target Endpoints → Default → PostFlow should look as follows:
 ![](./media/image27.png)
    * Save the changes to the API Proxy, wait for it to successfully deploy.
-* **Testing the Response Cache Policy**
-   * Start the API Trace and send a test ‘/GET hotels’ request from Postman with the following query parameters:
+   
+* **Testing the Response Cache Policy** Start the API Trace and send a test ‘/GET hotels’ request from Postman with the following query parameters:
    
    > zipcode=98101&radius=200
 
 **NOTE:** Before invoking, please change the URL to point to your API proxy.
 
  <span id="h.3znysh7" class="anchor"></span>
-      * Wait for 6 to 10 seconds (to avoid the Spike Arrest policy from stopping your requests) and send the same request again from Postman.
-      * Go back to the Trace view and review the transaction map of both the requests including the overall elapsed time to process both requests.
+ 
+   * Wait for 6 to 10 seconds (to avoid the Spike Arrest policy from stopping your requests) and send the same request again from Postman.
+   * Go back to the Trace view and review the transaction map of both the requests including the overall elapsed time to process both requests.
 
 The first transaction map should look as follows:
 ![](./media/image28.png)
