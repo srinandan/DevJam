@@ -52,6 +52,29 @@ center or even on the same machine as your backend services.
     allows Edge Microgateway to collect API data and send it to Apigee
     Edge without affecting latency of the runtime transactions.
 
+**Why use Edge Microgateway?**
+
+Moving the API management component close to backend target applications can 
+reduce network latency. While you can install Apigee Edge on-premises in a 
+private cloud, a full deployment of Apigee Edge is necessarily large and 
+complex to support its full feature-set and data-heavy features like key 
+management, monetization, and analytics. This means that deploying Apigee 
+Edge on premises in each data-center is not always desirable.
+
+With Edge Microgateway, you get a relatively small footprint application 
+running close to your backend applications. And, you get to leverage full 
+Apigee Edge for analytics, security, and other features.
+
+***Simplest deployment scenario***
+
+![](./media/image01.png)
+
+This architeture shows the request processing path when Edge Microgateway is 
+deployed in its most simple possible configuration, where Edge Microgateway 
+and the backend target APIs are installed on the same machine.
+
+For more deployment options please refer [here](http://docs.apigee.com/microgateway/content/edge-microgateway-overview)
+
 **Objectives**
 
 In this lab you will go through configuring, get working Edge
@@ -65,19 +88,14 @@ Edge Microgateway.
 -   Edge Micro ZIP File is downloaded
     to local folder. download
     from [*here*](https://s3.amazonaws.com/apigee-sdks/edgemicrogateway/latest/apigee-edge-micro.zip)[](https://s3.amazonaws.com/apigee-sdks/edgemicrogateway/latest/apigee-edge-micro.zip)
- > ![](./media/image07.png)
 
--   node -v v4.2.2 //Node 4.2.2 or later is installed
-> ![](./media/image06.png) 
+-   Node 4.2.2 or later is installed
 
 -   Have access to Edge Org
-> ![](./media/image09.png)
 
 -   Have openssl installed and is in path
-> ![](./media/image08.png) 
 
 -   curl
-> ![](./media/image11.png)
 
 
 **Estimated Time: 60 mins**
