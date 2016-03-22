@@ -171,37 +171,34 @@ lab shows you how to build proxies.
 
 ###Estimated Time: 15 mins
 
-1. *Creating an API Proxy* for a backend service that you want to expose requires you to provide the network address for the backend service, along with some information that API Services uses to model the API that will be exposed to developers.
-..1. Open up a browser tab and log in to [*http://enterprise.apigee.com*](http://enterprise.apigee.com)
-..2. From the Organization drop-down in the top-right corner, select the organization assigned to you.
-..3. From the Environment drop-down, select **test**
-..4. From the main menu, select APIs → API Proxies
+* Creating an API Proxy for a backend service that you want to expose requires you to provide the network address for the backend service, along with some information that API Services uses to model the API that will be exposed to developers.
+    * Open up a browser tab and log in to [*http://enterprise.apigee.com*](http://enterprise.apigee.com)
+    *  From the Organization drop-down in the top-right corner, select the organization assigned to you.
+    *  From the Environment drop-down, select **test**
+    *  From the main menu, select APIs → API Proxies
     
  > ![](./media/image45.png)
 
-    e.  To create a new API proxy, select the + API Proxy button to add a
-        new proxy.
+    * To create a new API proxy, select the + API Proxy button to add a new proxy.
 
  > ![](./media/image43.png)
 
-    f.  On the New API Proxy form that is displayed, provide information
-        needed to generate an API proxy. Select **Reverse Proxy** and
-        click on **Use OpenAPI** -
+    * On the New API Proxy form that is displayed, provide information needed to generate an API proxy. Select **Reverse Proxy** and click on **Use OpenAPI** -
 
  > ![](./media/image44.png)
 
-    g.  Click on **apply**
+    * Click on *apply*
 
- > ![](./media/image46.png)
+ ![](./media/image46.png)
 
  URL:
 [*http://playground.apistudio.io/9dd084db-7136-460e-8fe8-bde4ecafdc93/spec*](http://playground.apistudio.io/9dd084db-7136-460e-8fe8-bde4ecafdc93/spec)[](http://playground.apistudio.io/9dd084db-7136-460e-8fe8-bde4ecafdc93/spec)
 
-> [](http://playground.apistudio.io/9dd084db-7136-460e-8fe8-bde4ecafdc93/spec)
+[](http://playground.apistudio.io/9dd084db-7136-460e-8fe8-bde4ecafdc93/spec)
 
-    h.  Enter Proxy details
+    * Enter Proxy details
 
-> ![](./media/image34.png)
+![](./media/image34.png)
 >
 > Existing API:
 > **https://api.usergrid.com/{your-BaaS-org}/sandbox/hotels**
