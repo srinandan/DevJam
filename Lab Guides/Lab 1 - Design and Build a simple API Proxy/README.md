@@ -1,6 +1,6 @@
 ![](./media/image35.png)
 
-#Lab 1 – Design and Build a simple API Proxy*
+#Lab 1 – Design and Build a simple API Proxy
 
 ##Overview
 
@@ -210,12 +210,13 @@ lab shows you how to build proxies.
 ![](./media/image47.png)
     * Do not apply any security policy for the proxy (this will be done in the later labs)
 ![](./media/image48.png)
-    * Select the **default** virtual host (http only) -
+    * Select the **default** virtual host (http only)
 ![](./media/image49.png)
     * Select environments to deploy **test** and click **Build and Deploy**
 ![](./media/image06.png)
 
-* **Deploying and Undeploying a Proxy** to a given environment from the Management UI is simple too. * Click on the **Deploy** drop-down on the API Proxy page.
+* **Deploying and Undeploying a Proxy** to a given environment from the Management UI is simple too.
+    * Click on the **Deploy** drop-down on the API Proxy page.
 ![](./media/image50.png)
     * Notice that the proxy we just created is deployed to the **test** environment.
     * Click on the **test** environment name. This undeploys the proxy from the **test** environment
@@ -225,25 +226,25 @@ lab shows you how to build proxies.
 *  **Tracing the execution of a proxy** can also be done easily from the Management UI. This is a very powerful capability of the product since it makes it easy to troubleshoot and monitor API  proxies running on Apigee Edge. Trace lets you probe the details of each step through an API proxy flow.
     *  From the **{your\_initials}**\_hotels API Proxy page, click on the **Trace** tab.
 ![](./media/image51.png)
-    * Once on the **Trace** tab, pick the correct environment from the **Deployment to Trace** drop-down. In your case there should only be one environment to pick - **Environment test, Revision 1**
+    * Once on the **Trace** tab, pick the correct environment from the **Deployment to Trace** drop-down. In your case there should only be one environment to pick - **Environment test, Revision 1**.
 ![](./media/image05.png)
-    * Click on the **Start Trace Session** button
-    * After the trace session starts, click on the **Send** button in the **Send Requests** section
+    * Click on the **Start Trace Session** button.
+    * After the trace session starts, click on the **Send** button in the **Send Requests** section.
 ![](./media/image08.png)
     * You will see the a transaction appear in the **Transactions** section and a visual representation of the executed proxy flow in the **Transaction Map** section.
     * The **Transaction Map** is interactive - click on the various execution steps within the flow and review the information provided in the **Phase Details** section. You will notice that for each step information such as headers, variables, payload, properties and other relevant information is available. This helps you quickly understand exactly what is happening within the proxy flow.
 ![](./media/image28.png)
     * At this point, we will start to use the **Postman** tool as a client to invoke our proxy and continue to use **Postman** throughout the rest of the labs.
         * Launch **Postman**
-        * Select the **DevJam 2.0** environment
+        * Select the **DevJam 2.0** environment.
 ![](./media/image30.png)
         * Open the **DevJam 2.0** project
-        * Select and send the **/GET hotels** request
+        * Select and send the **/GET hotels** request.
 ![](./media/image31.png)
 
 **Note** : Please change the URL to point to your API proxy.
 
-Review the response returned by the proxy. It should be the same response as the one you observed when using the **Trace** tool in the Management UI
+Review the response returned by the proxy. It should be the same response as the one you observed when using the **Trace** tool in the Management UI.
     * Switch to the **Trace** tab of the Apigee Edge Management UI and click on the **Stop Trace** button
 
 ##Summary
