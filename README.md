@@ -1,6 +1,6 @@
 #Apigee DevJam
 
-Welcome to the apigee DevJam list. Herein you'll find labs instructions, and resources for running through this day long list of exercises.
+Welcome to the Apigee DevJam list. Herein you'll find lab instructions and resources for running through this day long list of exercises.
 
 ##Agenda
 
@@ -32,4 +32,4 @@ Welcome to the apigee DevJam list. Herein you'll find labs instructions, and res
 | [Appendix 5 - Building APIs using Node](./Appendix/Appendix%205%20-%20Building%20APIs%20using%20Node.js)             			| 60 mins 	|
 | [Appendix 6 - Build APIs from Web Services](./Appendix/Appendix%206%20-%20Build%20APIs%20from%20Web%20Services)             	| 15 mins 	|
 
-#####NOTE: Appendix items are optional.
+#####NOTE: Appendix items are optional. Depending on your interest and time you can choose one or more of the Appendix labs.
