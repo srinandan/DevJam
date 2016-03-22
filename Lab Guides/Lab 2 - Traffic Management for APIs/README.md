@@ -1,157 +1,88 @@
 ![](./media/image06.png)
 
-*Lab 2 - Traffic Management for APIs*
+#Lab 2 - Traffic Management for APIs*
 
 ![](./media/image18.png)
 
-**Overview**
+##Overview
 
-To maintain performance and availability across a diverse base of client
-apps, it's critical to maintain app traffic within the limits of the
-capacity of your APIs and backend services. It's also important to
-ensure that apps don't consume more resources than permitted.
+To maintain performance and availability across a diverse base of client apps, it's critical to maintain app traffic within the limits of the capacity of your APIs and backend services. It's also important to ensure that apps don't consume more resources than permitted.
 
-Apigee Edge provides three mechanisms that enable you to optimize
-traffic management to minimize latency for apps while maintaining the
-health of backend services. Each policy type addresses a distinct aspect
-of traffic management. In some cases, you might use the three policy
-types in a single API proxy.
+Apigee Edge provides three mechanisms that enable you to optimize traffic management to minimize latency for apps while maintaining the health of backend services. Each policy type addresses a distinct aspect of traffic management. In some cases, you might use the three policy types in a single API proxy.
 
-***Spike Arrest Policy***
+####Spike Arrest Policy
+This policy smoothes traffic spikes by dividing a limit that you define into smaller intervals. For example, if you define a limit of
+100 messages per second, the Spike Arrest policy enforces a limit of about 1 request every 10 milliseconds (1000 / 100); and 30 messages
+per minute is smoothed into about 1 request every 2 seconds (60 / 30). The Spike Arrest limit should be close to capacity calculated for
+either your backend service or the API proxy itself. The limit should also be configured for shorter time intervals, such as seconds or minutes. This policy should be used to prevent sudden traffic bursts caused by malicious attackers attempting to disrupt a service using a denial-of-service (DOS) attack or by buggy client applications.
+See [Spike Arrest policy](http://apigee.com/docs/ja/api-services/reference/spike-arrest-policy).
 
-This policy smoothes traffic spikes by dividing a limit that you
-define into smaller intervals. For example, if you define a limit of
-100 messages per second, the Spike Arrest policy enforces a limit of
-about 1 request every 10 milliseconds (1000 / 100); and 30 messages
-per minute is smoothed into about 1 request every 2 seconds (60 / 30).
-The Spike Arrest limit should be close to capacity calculated for
-either your backend service or the API proxy itself. The limit should
-also be configured for shorter time intervals, such as seconds or
-minutes. This policy should be used to prevent sudden traffic bursts
-caused by malicious attackers attempting to disrupt a service using a
-denial-of-service (DOS) attack or by buggy client applications.
+####Quota Policy
+This policy enforces consumption limits on client apps by maintaining a distributed 'counter' that tallies incoming requests. The counter
+can tally API calls for any identifiable entity, including apps, developers, API keys, access tokens, and so on. Usually, API keys are
+used to identify client apps. This policy is computationally expensive so, for high-traffic APIs, it should configured for longer time
+intervals, such as a day or month. This policy should be used to enforce business contracts or SLAs with developers and partners, rather than for operational traffic management.
+See [Quota policy](http://apigee.com/docs/ja/api-services/reference/quota-policy).
 
-See [Spike Arrest
-policy](http://apigee.com/docs/ja/api-services/reference/spike-arrest-policy).
+####Concurrent Rate Limit Policy
+This policy enables traffic management between API Services and your backend services. Some backend services, such as legacy applications, may have strict limits on the number of simultaneous connections they can support. This policy enforces a limit on the number of requests that can be sent at any given time from API services to your backend service. This number is counted across all of the distributed instances of API Services that may be calling your backend service. Policy limits and time duration should be configured to match the capacity available for your backend service.
+See [Concurrent Rate Limit policy](http://apigee.com/docs/ja/node/11646).
 
-***Quota Policy***
-
-This policy enforces consumption limits on client apps by maintaining
-a distributed 'counter' that tallies incoming requests. The counter
-can tally API calls for any identifiable entity, including apps,
-developers, API keys, access tokens, and so on. Usually, API keys are
-used to identify client apps. This policy is computationally expensive
-so, for high-traffic APIs, it should configured for longer time
-intervals, such as a day or month. This policy should be used to
-enforce business contracts or SLAs with developers and partners,
-rather than for operational traffic management.
-
-See [Quota
-policy](http://apigee.com/docs/ja/api-services/reference/quota-policy).
-
-***Concurrent Rate Limit Policy***
-
-This policy enables traffic management between API Services and your
-backend services. Some backend services, such as legacy applications,
-may have strict limits on the number of simultaneous connections they
-can support. This policy enforces a limit on the number of requests
-that can be sent at any given time from API services to your backend
-service. This number is counted across all of the distributed
-instances of API Services that may be calling your backend service.
-Policy limits and time duration should be configured to match the
-capacity available for your backend service.
-
-See [Concurrent Rate Limit
-policy](http://apigee.com/docs/ja/node/11646).
-
-***Caching Policies***
-
+####Caching Policies
 Apigee Edge supports different caching policies enabling you to:
+* Reduce latency: A request satisfied from the cache gets the representation and displays it in a shorter time. The server is
+more responsive with requests satisfied from the cache, which is closer to the client than the origin server.
 
--   ***Reduce latency:*** A request satisfied from the cache gets the
-    representation and displays it in a shorter time. The server is
-    more responsive with requests satisfied from the cache, which is
-    closer to the client than the origin server.
+* Reduce network traffic: Representations are reused, reducing the impact of processing duplicate or redundant requests. Using a cache also reduces the amount of bandwidth you use.
 
--   ***Reduce network traffic:*** Representations are reused, reducing the
-    impact of processing duplicate or redundant requests. Using a
-    cache also reduces the amount of bandwidth you use.
+* Persist data across transactions: You can store session data for reuse across HTTP transactions.
 
--   **Persist data across transactions:** You can store session data for
-    reuse across HTTP transactions.
-
--   ***Support security:*** You may need "scope" access to the contents of
-    a cache so it can only be accessed in a particular environment or
-    by a specific API proxy.
+* Support security:You may need "scope" access to the contents of a cache so it can only be accessed in a particular environment or by a specific API proxy.
 
 The various caching policies supported by Apigee Edge are:
 
-***Response Cache Policy***: Uses a cache to store and retrieve data
-from a backend resource, reducing the number of requests to the
-resource. For policy reference information, see [Response Cache
-policy](http://apigee.com/docs/api-services/reference/response-cache-policy).
+* Response Cache Policy: Uses a cache to store and retrieve data from a backend resource, reducing the number of requests to the resource. For policy reference information, see [Response Cache policy](http://apigee.com/docs/api-services/reference/response-cache-policy).
 
-***Populate Cache Policy***: Use the PopulateCache policy to write data
-to the cache. For policy reference information, see [Populate Cache
-policy](http://apigee.com/docs/api-services/reference/populate-cache-policy).
+* Populate Cache Policy: Use the PopulateCache policy to write data to the cache. For policy reference information, see [Populate Cache policy](http://apigee.com/docs/api-services/reference/populate-cache-policy).
 
-***Lookup Cache Policy***: You can retrieve cached values with the
-LookupCache policy. For policy reference information, see [LookupCache
+* Lookup Cache Policy: You can retrieve cached values with the LookupCache policy. For policy reference information, see [LookupCache
 policy](http://apigee.com/docs/api-services/reference/lookup-cache-policy).
 
-***Invalidate Cache Policy***: Configures how the cached values should
-be purged from the cache. For policy reference information, see
-[Invalidate Cache
-policy](http://apigee.com/docs/api-services/reference/invalidate-cache-policy).
+* Invalidate Cache Policy: Configures how the cached values should be purged from the cache. For policy reference information, see
+[Invalidate Cache policy](http://apigee.com/docs/api-services/reference/invalidate-cache-policy).
 
-**Objectives**
-
-The goal of this lesson is to introduce you to Traffic Management
-policies and applying a couple of these policies to the API Proxy you
+##Objectives
+The goal of this lesson is to introduce you to Traffic Management policies and applying a couple of these policies to the API Proxy you
 created in the previous lesson.
 
-**Pre-Requisites**
-
+##Pre-Requisites
 -   Lab 1 is completed
 
-***Estimated Time: 30 mins***
+###Estimated Time: 30 mins
 
-1)  ****Adding a Spike Arrest Policy****
+* **Adding a Spike Arrest Policy**
+    * Go to the Apigee Edge Management UI browser tab.
+    * Select your API proxy.
+    * Click on the develop tab
+![](./media/image17.png)
+    * Click on Proxy Endpoints &gt; PreFlow.
+![](./media/image19.png)
+    * Click on “**+ Step**” on the Request Flow.
+![](./media/image32.png)
+    * Select the ‘Spike Arrest’ policy with the following properties:
+    > - Display Name: **Spike Arrest 10pm**
+    > - Name: **Spike-Arrest-10pm**
 
-    a.  Go to the Apigee Edge Management UI browser tab
-    b.  Select your API proxy
-    c.  Click on the develop tab
+![](./media/image22.png)
 
-> ![](./media/image17.png)
-
-    d.  Click on Proxy Endpoints &gt; PreFlow.
-
-> ![](./media/image19.png)
-
-    e.  Click on “**+ Step**” on the Request Flow
-
-> ![](./media/image32.png)
-
-    f.  Select the ‘Spike Arrest’ policy with the following properties:
-
-    -   Display Name: **Spike Arrest 10pm**
-    -   Name: **Spike-Arrest-10pm**
-
-> ![](./media/image22.png)
-
-**Note**: By applying the policy to the Flow PreFlow, this Spike
-Arrest policy will get enforced for all the resources defined for this
+**Note**: By applying the policy to the Flow PreFlow, this Spike Arrest policy will get enforced for all the resources defined for this
 Proxy.
-
-    g.  Click on the “Spike Arrest” policy and change the value of the
-        following property in the XML:
-
-> ![](./media/image20.png)
+    * Click on the “Spike Arrest” policy and change the value of the following property in the XML:
+![](./media/image20.png)
 
 **NOTE:** The value was changed from 30 per second to 10 per minute.
-
-    h.  Save the changes to the proxy and ensure that it is deployed
-        successfully to the ‘test’ environment
+    
+    * Save the changes to the proxy and ensure that it is deployed successfully to the ‘test’ environment.
 
 *(You can find the policy xml*
 [**here**](https://gist.github.com/prithpal/08db967d0564288d9016)*.
