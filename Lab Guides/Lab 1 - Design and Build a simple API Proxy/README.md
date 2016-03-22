@@ -203,6 +203,7 @@ lab shows you how to build proxies.
 > Proxy Name: **{your\_initials}\_hotels**
 >
 > Project Base Path: **/v1/{your\_initials}\_hotels**
+> 
 **Note**: Replace **{your-BaaS-org}** with the actual name of your API BaaS organization. Replace **{your-initials}** with the initials of your name.
 
     * Select **all operations** from the OpenAPI spec to proxy
