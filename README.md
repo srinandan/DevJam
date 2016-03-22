@@ -1,13 +1,14 @@
-*Apigee DevJam*
+#Apigee DevJam
+
 Welcome to the apigee DevJam list. Herein you'll find labs instructions, and resources for running through this day long list of exercises.
 
-**Agenda**
+##Agenda
 
-***Presentation*** 30 mins
+#####Presentation : 30 mins
 
-***Product Demo*** 30 mins
+#####Product Demo : 30 mins
 
-***Labs***
+####Labs
 
 | Name 										 														                            | Duration 	|
 |-------------------------------------------------------------------------------------------------------------------------------|---------	|
@@ -20,7 +21,7 @@ Welcome to the apigee DevJam list. Herein you'll find labs instructions, and res
 | [Lab 5 – Introduction to API BaaS](./Lab%20Guides/Lab%205%20-%20Introduction%20to%20API%20BaaS%20(Backend-as-a-Service))      | 30 mins 	|
 | Break                                                                                                                         | 15 mins   |
 
-***Appendix***
+####Appendix
 
 | Name 										 														                            | Duration 	|
 |-------------------------------------------------------------------------------------------------------------------------------|---------	|
@@ -31,4 +32,4 @@ Welcome to the apigee DevJam list. Herein you'll find labs instructions, and res
 | [Appendix 5 - Building APIs using Node](./Appendix/Appendix%205%20-%20Building%20APIs%20using%20Node.js)             			| 60 mins 	|
 | [Appendix 6 - Build APIs from Web Services](./Appendix/Appendix%206%20-%20Build%20APIs%20from%20Web%20Services)             	| 15 mins 	|
 
-****NOTE****: Appendix items are optional.
+#####NOTE: Appendix items are optional.
