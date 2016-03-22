@@ -67,7 +67,7 @@ Apigee Edge for analytics, security, and other features.
 
 ***Simplest deployment scenario***
 
-![](./media/image01.png)
+![](./media/image17.png)
 
 This architeture shows the request processing path when Edge Microgateway is 
 deployed in its most simple possible configuration, where Edge Microgateway 
