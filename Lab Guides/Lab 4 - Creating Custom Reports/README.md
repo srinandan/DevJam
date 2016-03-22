@@ -78,19 +78,19 @@ f.  For the ‘Extract Variables’ policy, change the XML configuration of
     the policy as follows :
 
   ```
-  &lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
-  &lt;ExtractVariables async="false" continueOnError="false" enabled="true" name="Extract-Variables"&gt;
-  &lt;DisplayName&gt;Extract Variables&lt;/DisplayName&gt;
-  &lt;JSONPayload&gt;
-  &lt;Variable name="hotelRating"&gt;
-  &lt;JSONPath&gt;\$.entities\[0\].hotelRating&lt;/JSONPath&gt;
-  &lt;/Variable&gt;
-  &lt;Variable name="hotelCity"&gt;
-  &lt;JSONPath&gt;\$.entities\[0\].city&lt;/JSONPath&gt;
-  &lt;/Variable&gt;
-  &lt;/JSONPayload&gt;
-  &lt;Source clearPayload="false"&gt;response&lt;/Source&gt;
-  &lt;/ExtractVariables&gt;
+  <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+  <ExtractVariables async="false" continueOnError="false" enabled="true" name="Extract-Variables">
+  <DisplayName>Extract Variables</DisplayName>
+  <JSONPayload>
+  <Variable name="hotelRating">
+  <JSONPath>\$.entities\[0\].hotelRating</JSONPath>
+  </Variable>
+  <Variable name="hotelCity">
+  <JSONPath>\$.entities\[0\].city</JSONPath>
+  </Variable>
+  </JSONPayload>
+  <Source clearPayload="false">response</Source>
+  </ExtractVariables>
   ```
 
 *(You can find the policy xml*
@@ -116,15 +116,15 @@ a.  For the ‘Statistics Collector’ policy, change the XML configuration
     of the policy as follows :
 
   ```
-  &lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
-  &lt;StatisticsCollector async="false" continueOnError="false" enabled="true" name="Statistics-Collector"&gt;
-  &lt;DisplayName&gt;Statistics Collector&lt;/DisplayName&gt;
-  &lt;Properties/&gt;
-  &lt;Statistics&gt;
-  &lt;Statistic name="devjam\_{your\_initials}\_city" ref="hotelCity" type="String"&gt;NO\_CITY&lt;/Statistic&gt;
-  &lt;Statistic name="devjam\_{your\_initials}\_rating" ref="hotelRating" type="Float"&gt;NO\_RATING&lt;/Statistic&gt;
-  &lt;/Statistics&gt;
-  &lt;/StatisticsCollector&gt;
+  <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+  <StatisticsCollector async="false" continueOnError="false" enabled="true" name="Statistics-Collector">
+  <DisplayName>Statistics Collector</DisplayName>
+  <Properties/>
+  <Statistics>
+  <Statistic name="devjam\_{your\_initials}\_city" ref="hotelCity" type="String">NO\_CITY</Statistic>
+  <Statistic name="devjam\_{your\_initials}\_rating" ref="hotelRating" type="Float">NO\_RATING</Statistic>
+  </Statistics>
+  </StatisticsCollector>
   ```
 
 *(You can find the policy xml*
@@ -157,14 +157,14 @@ Bump up the “rate” of Spike Arrest to some arbitrarily high number so
 you can run a few requests through.
 
 ```
-&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
-&lt;SpikeArrest async="false" continueOnError="false" enabled="true"name="Spike-Arrest-10pm"&gt;
-&lt;DisplayName&gt;Spike Arrest 10pm&lt;/DisplayName&gt;
-&lt;Properties/&gt;
-&lt;Identifier ref="request.header.some-header-name"/&gt;
-&lt;MessageWeight ref="request.header.weight"/&gt;
-&lt;Rate&gt;1000pm&lt;/Rate&gt;**
-&lt;/SpikeArrest&gt;
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SpikeArrest async="false" continueOnError="false" enabled="true"name="Spike-Arrest-10pm">
+<DisplayName>Spike Arrest 10pm</DisplayName>
+<Properties/>
+<Identifier ref="request.header.some-header-name"/>
+<MessageWeight ref="request.header.weight"/>
+<Rate>1000pm</Rate>**
+</SpikeArrest>
 ```
 
 1.  Review the Trace for the proxy and notice that “Extract Variables”
@@ -253,15 +253,15 @@ Bump up the “rate” of Spike Arrest to some arbitrarily high number so
 you can run a few requests through.
 
 ```
-&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
-&lt;SpikeArrest async="false" continueOnError="false" enabled="true"
-name="Spike-Arrest-10pm"&gt;
-&lt;DisplayName&gt;Spike Arrest 10pm&lt;/DisplayName&gt;
-&lt;Properties/&gt;
-&lt;Identifier ref="request.header.some-header-name"/&gt;
-&lt;MessageWeight ref="request.header.weight"/&gt;
-&lt;Rate&gt;1000pm&lt;/Rate&gt;**
-&lt;/SpikeArrest&gt;)
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SpikeArrest async="false" continueOnError="false" enabled="true"
+name="Spike-Arrest-10pm">
+<DisplayName>Spike Arrest 10pm</DisplayName>
+<Properties/>
+<Identifier ref="request.header.some-header-name"/>
+<MessageWeight ref="request.header.weight"/>
+<Rate>1000pm</Rate>**
+</SpikeArrest>)
 ```
 
 2.  Go back to the Management UI and navigate to Analytics / Reports

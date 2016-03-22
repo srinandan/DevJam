@@ -407,28 +407,28 @@ and [authorizing requests using OAuth
         the ‘Validate OAuth v2 Token’ policy.
 
   ```
-  &lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
-  &lt;OAuthV2 async="false" continueOnError="false" enabled="true" name="Validate-OAuth-v2-Token"&gt;
-  &lt;DisplayName&gt;Validate OAuth v2 Token&lt;/DisplayName&gt;
-  &lt;FaultRules/&gt;
-  &lt;Properties/&gt;
-  &lt;Attributes/&gt;
-  &lt;ExternalAuthorization&gt;false&lt;/ExternalAuthorization&gt;
-  &lt;Operation&gt;VerifyAccessToken&lt;/Operation&gt;
-  &lt;SupportedGrantTypes/&gt;
-  &lt;GenerateResponse enabled="true"/&gt;
-  &lt;Tokens/&gt;
-  &lt;/OAuthV2&gt;
+  <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+  <OAuthV2 async="false" continueOnError="false" enabled="true" name="Validate-OAuth-v2-Token">
+  <DisplayName>Validate OAuth v2 Token</DisplayName>
+  <FaultRules/>
+  <Properties/>
+  <Attributes/>
+  <ExternalAuthorization>false</ExternalAuthorization>
+  <Operation>VerifyAccessToken</Operation>
+  <SupportedGrantTypes/>
+  <GenerateResponse enabled="true"/>
+  <Tokens/>
+  </OAuthV2>
   ```
 
 *(You can find the policy xml*
 [**here**](https://gist.github.com/prithpal/45e6e50683b53685ebc6)*.
 Click the “Raw” button and copy/paste into your policy editor).*
 
-The value of the &lt;Operation&gt; element indicates the action to
+The value of the {Operation} element indicates the action to
 take - in this case, verification of the access token.
 
-The value of the &lt;ExternalAuthorization&gt; element is set to
+The value of the {ExternalAuthorization} element is set to
 ‘false,’ indicating that Apigee Edge should validate the OAuth Token
 rather than delegating it to an external validator.
 
@@ -456,17 +456,17 @@ rather than delegating it to an external validator.
         Header’ panel as follows:
 
   ```
-  &lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
-  &lt;AssignMessage async="false" continueOnError="false" enabled="true" name="Remove-Authorization-Header"&gt;
-  &lt;DisplayName&gt;Remove Authorization Header&lt;/DisplayName&gt;
-  &lt;Remove&gt;
-  &lt;Headers&gt;
-  &lt;Header name="Authorization"&gt;&lt;/Header&gt;
-  &lt;/Headers&gt;
-  &lt;/Remove&gt;
-  &lt;IgnoreUnresolvedVariables&gt;true&lt;/IgnoreUnresolvedVariables&gt;
-  &lt;AssignTo createNew="false" transport="http" type="request"/&gt;
-  &lt;/AssignMessage&gt;
+  <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+  <AssignMessage async="false" continueOnError="false" enabled="true" name="Remove-Authorization-Header">
+  <DisplayName>Remove Authorization Header</DisplayName>
+  <Remove>
+  <Headers>
+  <Header name="Authorization"></Header>
+  </Headers>
+  </Remove>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+  <AssignTo createNew="false" transport="http" type="request"/>
+  </AssignMessage>
   ```
 
 *(You can find the policy xml*

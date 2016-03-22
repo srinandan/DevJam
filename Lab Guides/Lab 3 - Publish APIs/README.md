@@ -42,7 +42,7 @@ of a developer to an app and to an API:
 
 > ![](./media/image50.png)
 
-  a.  Click on Proxy Endpoints -&gt; PreFlow
+  a.  Click on Proxy Endpoints -> PreFlow
 
 > ![](./media/image49.png)
 
@@ -76,20 +76,20 @@ able to get the data from the cache.
       this:
 
   ```
-  &lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
-  &lt;VerifyAPIKey async="false" continueOnError="false" enabled="true" name="Verify-API-Key"&gt;
-  &lt;DisplayName&gt;Verify API Key&lt;/DisplayName&gt;
-  &lt;FaultRules/&gt;
-  &lt;Properties/&gt;
-  &lt;APIKey ref="request.queryparam.apikey"/&gt;
-  &lt;/VerifyAPIKey&gt;
+  <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+  <VerifyAPIKey async="false" continueOnError="false" enabled="true" name="Verify-API-Key">
+  <DisplayName>Verify API Key</DisplayName>
+  <FaultRules/>
+  <Properties/>
+  <APIKey ref="request.queryparam.apikey"/>
+  </VerifyAPIKey>
   ```
 
 *(You can find the policy xml*
 [**here**](https://gist.github.com/prithpal/02ee175cc1e00a2de610)*.
 Click the “Raw” button and copy/paste into your policy editor).*
 
-Note the &lt;APIKey&gt; element, which identifies where the policy
+Note the <APIKey> element, which identifies where the policy
 should check for the API key. In this example, the policy looks for
 the API key in a query parameter named 'apikey'. API keys can be
 located in a query parameter, a form parameter, or an HTTP header.
@@ -122,17 +122,17 @@ policy](http://apigee.com/docs/api-services/reference/verify-api-key-policy)[.](
      the policy using the ‘Code: Remove APIKey QP’ panel as follows:
 
   ```
-  &lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
-  &lt;AssignMessage async="false" continueOnError="false" enabled="true" name="Remove-APIKey-QP"&gt;
-  &lt;DisplayName&gt;Remove APIKey QP&lt;/DisplayName&gt;
-  &lt;Remove&gt;
-  &lt;QueryParams&gt;
-  &lt;QueryParam name="apikey"&gt;&lt;/QueryParam&gt;
-  &lt;/QueryParams&gt;
-  &lt;/Remove&gt;
-  &lt;IgnoreUnresolvedVariables&gt;true&lt;/IgnoreUnresolvedVariables&gt;
-  &lt;AssignTo createNew="false" transport="http" type="request"/&gt;
-  &lt;/AssignMessage&gt;
+  <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+  <AssignMessage async="false" continueOnError="false" enabled="true" name="Remove-APIKey-QP">
+  <DisplayName>Remove APIKey QP</DisplayName>
+  <Remove>
+  <QueryParams>
+  <QueryParam name="apikey"></QueryParam>
+  </QueryParams>
+  </Remove>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+  <AssignTo createNew="false" transport="http" type="request"/>
+  </AssignMessage>
   ```
 
 (You can find the policy xml
@@ -362,7 +362,7 @@ templates*](http://apigee.com/docs/developer-services/content/using-smartdocs-do
     a.  Log in to your portal as a user with admin or content
         creation privileges.
 
-    b.  Select **Content &gt; SmartDocs** in the Drupal administration menu.
+    b.  Select **Content > SmartDocs** in the Drupal administration menu.
 
 > ![](./media/image42.png)
 

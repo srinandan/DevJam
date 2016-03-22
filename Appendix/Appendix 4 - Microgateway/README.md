@@ -97,10 +97,10 @@ Windows: node edgemicro –h
 Usage: edgemicro \[options\] \[command\]
 
 Commands:
-agent &lt;action&gt; agent commands, see: "edgemicro agent -h"
-cert &lt;action&gt; certificate commands, see: "edgemicro cert -h"
-token &lt;action&gt; token commands, see: "edgemicro token -h"
-private &lt;action&gt; private commands, see: "edgemicro private -h"
+agent <action> agent commands, see: "edgemicro agent -h"
+cert <action> certificate commands, see: "edgemicro cert -h"
+token <action> token commands, see: "edgemicro token -h"
+private <action> private commands, see: "edgemicro private -h"
 configure \[options\] automated, one-time setup for a new edgemicro
 instance
 deploy-edge-service \[options\] deploy edge micro support server to
@@ -123,7 +123,7 @@ Options:
 Linux/Mac Only:
 ```
 export
-PATH=&lt;Edge\_Micro\_Gateway\_Installaton\_Folder&gt;/cli/bin:\$PATH
+PATH=<Edge\_Micro\_Gateway\_Installaton\_Folder>/cli/bin:\$PATH
 echo \$PATH
 ```
 
@@ -131,11 +131,11 @@ echo \$PATH
     public/private cloud
 
 ```
-Linux/Mac: ./edgemicro configure -o &lt;org-name&gt; -e
-&lt;env-name&gt; -u &lt;your Apigee email&gt;
+Linux/Mac: ./edgemicro configure -o <org-name> -e
+<env-name> -u <your Apigee email>
 
-Windows: node edgemicro configure -o &lt;org-name&gt; -e
-&lt;env-name&gt; -u &lt;your Apigee email&gt;
+Windows: node edgemicro configure -o <org-name> -e
+<env-name> -u <your Apigee email>
 
 checking for previously deployed proxies
 preparing edgemicro-auth app to be deployed to your Edge instance
@@ -185,8 +185,8 @@ edgemicro configuration complete!
     is configured correctly with the Edge Cloud org.
 
 ```
-./edgemicro verify -o &lt;org-name&gt; -e &lt;env-name&gt; -k
-&lt;key&gt; -s &lt;secret&gt;
+./edgemicro verify -o <org-name> -e <env-name> -k
+<key> -s <secret>
 ```
 
 You should see happy messages. If not, you'll need to stop, and
@@ -210,10 +210,10 @@ npm start  
     You will see an output from that command:   
 
 ```
-&gt; edgemicro-agent@1.1.1 start
+> edgemicro-agent@1.1.1 start
 C:\\Users\\nanda\\Documents\\apigee-edge-micro-1.1.1\\agent
 
-&gt; node build/src/index.js
+> node build/src/index.js
 
 i edge micro agent listening on 9000 
 ```
@@ -229,7 +229,7 @@ Edge.
 
 Log in to your organization on Apigee Edge.
 
--   Select APIs &gt; API Proxies from the top menu.
+-   Select APIs > API Proxies from the top menu.
 -   In the API Proxies page, click + API Proxy.
 -   In the dialog, configure the proxy as follows: 
     -   Starting Point Type: **Backend Service**
@@ -257,16 +257,16 @@ prefix **edgemicro\_**
 -   We have created an API Proxy that will be fetched by Edge Micro
     gateway, when it starts locally
 
--   Add the API Proxy you created edgemicro\_&lt;your
-    initials&gt;\_mghotels to the API Product &lt;your initials&gt;
+-   Add the API Proxy you created edgemicro\_<your
+    initials>\_mghotels to the API Product <your initials>
     Hospitality Basic Product
 
     -   From the Apigee Edge Management UI, go to Publish → API Products
-    -   Select the API Product: &lt;your initials&gt; Hospitality Basic
+    -   Select the API Product: <your initials> Hospitality Basic
         Product
     -   Click on Edit Button on the top right
-    -   Click on + API Proxy button and API Proxy edgemicro\_&lt;your
-        initials&gt;\_mghotels 
+    -   Click on + API Proxy button and API Proxy edgemicro\_<your
+        initials>\_mghotels 
 
 ***Start Edge Microgateway***
 
@@ -288,11 +288,11 @@ agent proc -h).
     providing the key and secret values with the -k and -s
     parameters, respectively.
 ```
-Linux/Mac: ./edgemicro agent proc -c start -k &lt;key&gt; -s
-&lt;secret&gt;
+Linux/Mac: ./edgemicro agent proc -c start -k <key> -s
+<secret>
 
-Windows: node edgemicro agent proc –c start –k &lt;key&gt; -s
-&lt;secret&gt;
+Windows: node edgemicro agent proc –c start –k <key> -s
+<secret>
 ```
 
 -   If the micro gateway is started successfully, you will see something
@@ -364,8 +364,8 @@ Authorization header"}
 
 -   Run the following command to get the JWT Token
 ```
-curl -i -X POST "http://&lt;org
-name&gt;-test.apigee.net/edgemicro-auth/token" \\ -H
+curl -i -X POST "http://<org
+name>-test.apigee.net/edgemicro-auth/token" \\ -H
 "Content-Type:application/json" \\ -d '{ "grant\_type":
 "client\_credentials", "client\_id":"...CLIENT\_ID\_HERE...",
 "client\_secret": "...CLIENT\_SECRET\_HERE..." }'
