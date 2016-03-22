@@ -177,15 +177,15 @@ lab shows you how to build proxies.
     *  From the Environment drop-down, select **test**
     *  From the main menu, select APIs → API Proxies
     
- > ![](./media/image45.png)
+ ![](./media/image45.png)
 
     * To create a new API proxy, select the + API Proxy button to add a new proxy.
 
- > ![](./media/image43.png)
+ ![](./media/image43.png)
 
     * On the New API Proxy form that is displayed, provide information needed to generate an API proxy. Select **Reverse Proxy** and click on **Use OpenAPI** -
 
- > ![](./media/image44.png)
+ ![](./media/image44.png)
 
     * Click on *apply*
 
@@ -212,18 +212,18 @@ lab shows you how to build proxies.
 ![](./media/image48.png)
     * Select the **default** virtual host (http only) -
 ![](./media/image49.png)
-    * Select environments to deploy **test** and click ****Build and Deploy****
+    * Select environments to deploy **test** and click **Build and Deploy**
 ![](./media/image06.png)
-* *Deploying and Undeploying a Proxy* to a given environment from the Management UI is simple too.
-    * Click on the **Deploy** drop-down on the API Proxy page
+
+* **Deploying and Undeploying a Proxy** to a given environment from the Management UI is simple too. * Click on the **Deploy** drop-down on the API Proxy page.
 ![](./media/image50.png)
     * Notice that the proxy we just created is deployed to the **test** environment.
     * Click on the **test** environment name. This undeploys the proxy from the **test** environment
     * Click on the **Deploy** drop-down again and select the **test** environment. This re-deploys the proxy to the **test**
     environment
 
-*  *Tracing the execution of a proxy* can also be done easily from the Management UI. This is a very powerful capability of the product since it makes it easy to troubleshoot and monitor API  proxies running on Apigee Edge. Trace lets you probe the details of each step through an API proxy flow.
-    *  From the **{your\_initials}**\_hotels API Proxy page, click on the **Trace** tab
+*  **Tracing the execution of a proxy** can also be done easily from the Management UI. This is a very powerful capability of the product since it makes it easy to troubleshoot and monitor API  proxies running on Apigee Edge. Trace lets you probe the details of each step through an API proxy flow.
+    *  From the **{your\_initials}**\_hotels API Proxy page, click on the **Trace** tab.
 ![](./media/image51.png)
     * Once on the **Trace** tab, pick the correct environment from the **Deployment to Trace** drop-down. In your case there should only be one environment to pick - **Environment test, Revision 1**
 ![](./media/image05.png)
@@ -242,6 +242,7 @@ lab shows you how to build proxies.
 ![](./media/image31.png)
 
 **Note** : Please change the URL to point to your API proxy.
+
 Review the response returned by the proxy. It should be the same response as the one you observed when using the **Trace** tool in the Management UI
     * Switch to the **Trace** tab of the Apigee Edge Management UI and click on the **Stop Trace** button
 
