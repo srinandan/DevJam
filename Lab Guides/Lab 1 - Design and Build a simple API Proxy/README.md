@@ -1,8 +1,8 @@
 ![](./media/image35.png)
 
-*Lab 1 – Design and Build a simple API Proxy*
+#Lab 1 – Design and Build a simple API Proxy*
 
-**Overview**
+##Overview
 
 ![](./media/image36.png)
 
@@ -42,23 +42,20 @@ spec, or API deployment:
     > This editor is the basis for the ones used in the above two projects, but it
     > also includes code generators for a number of other languages.
 
-1.  **Review the OpenAPI specification** hosted
+* Review the OpenAPI specification hosted
     [*here*](http://playground.apistudio.io/9dd084db-7136-460e-8fe8-bde4ecafdc93/#/)
 ![](./media/image37.png)
 
 URL:
 [**http://playground.apistudio.io/9dd084db-7136-460e-8fe8-bde4ecafdc93/\#/**](http://playground.apistudio.io/9dd084db-7136-460e-8fe8-bde4ecafdc93/#/)
-
-
-2.  On the right side of the editor, in the documentation view, scroll
+* On the right side of the editor, in the documentation view, scroll
     down to **GET /hotels** in the Responses section and click the
     **Try this operation** button:
 
 ![](./media/image40.png)
+* Click on Send Request and observe the response
 
-3.  Click on Send Request and observe the response
-
-![](./media/image39.png){
+![](./media/image39.png)
 
 <span id="h.ri196vnobha9" class="anchor"></span>
 
@@ -101,7 +98,7 @@ URL:
 <span id="h.m2oesdy59f8i" class="anchor"></span>
 
 <span id="h.lmooryntc5mx" class="anchor"></span>Now that we have the
-OpenAPI specification, let**s create an API proxy in Apigee Edge.
+OpenAPI specification, let's create an API proxy in Apigee Edge.
 
 <span id="h.gjdgxs" class="anchor"></span>
 
@@ -154,7 +151,7 @@ to your organization on Apigee Edge. For an overview of the UI and API,
 see [Using the Apigee Edge development
 environment](http://apigee.com/docs/api-services/content/using-apigee-edge-development-environment).
 
-**Objectives**
+##Objectives
 
 In this lab you will get familiar with the Apigee Edge Management UI by
 creating a simple passthrough facade to the GET API for the **hotels**
@@ -168,26 +165,17 @@ many existing back-end services/APIs & they prefer a Build-First
 approach which starts with building an API proxy in Apigee Edge. This
 lab shows you how to build proxies.
 
-**Prerequisites**
+##Prerequisites
 
 - Postman tool installed and **DevJam 2.0** bundle imported.
 
-**Estimated Time: 15 mins**
+###Estimated Time: 15 mins
 
-1)  **Creating an API Proxy** for a backend service that you want to
-    expose requires you to provide the network address for the backend
-    service, along with some information that API Services uses to
-    model the API that will be exposed to developers.**
-
-    a.  Open up a browser tab and log in to
-        [*http://enterprise.apigee.com*](http://enterprise.apigee.com)
-    
-    b.  From the Organization drop-down in the top-right corner, select
-        the organization assigned to you.
-    
-    c.  From the Environment drop-down, select **test**
-    
-    d.  From the main menu, select APIs → API Proxies
+1. *Creating an API Proxy* for a backend service that you want to expose requires you to provide the network address for the backend service, along with some information that API Services uses to model the API that will be exposed to developers.
+..1. Open up a browser tab and log in to [*http://enterprise.apigee.com*](http://enterprise.apigee.com)
+..2. From the Organization drop-down in the top-right corner, select the organization assigned to you.
+..3. From the Environment drop-down, select **test**
+..4. From the main menu, select APIs → API Proxies
     
  > ![](./media/image45.png)
 
