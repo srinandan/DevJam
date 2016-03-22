@@ -149,7 +149,7 @@ second will fail.
 
 ![](./media/image26.png)
 
-Once the ‘Cache Hotels Data’ policy appears, review its properties (click on the policy). Since everything else except the name was left as a default, you will notice that the Expiration Timeout in Seconds is set to 3600 (i.e. 1 hour).
+   * Once the ‘Cache Hotels Data’ policy appears, review its properties (click on the policy). Since everything else except the name was left as a default, you will notice that the Expiration Timeout in Seconds is set to 3600 (i.e. 1 hour).
 ![](./media/image24.png)
 
 The timeout property along with other properties should be modified as per your use cases. For policy reference information, see [ResponseCachepolicy](http://apigee.com/docs/api-services/reference/response-cache-policy).
