@@ -203,7 +203,6 @@ lab shows you how to build proxies.
 > Proxy Name: **{your\_initials}\_hotels**
 >
 > Project Base Path: **/v1/{your\_initials}\_hotels**
->
 **Note**: Replace **{your-BaaS-org}** with the actual name of your API BaaS organization. Replace **{your-initials}** with the initials of your name.
 
     * Select **all operations** from the OpenAPI spec to proxy
@@ -244,8 +243,7 @@ lab shows you how to build proxies.
 
 **Note** : Please change the URL to point to your API proxy.
 
-Review the response returned by the proxy. It should be the same response as the one you observed when using the **Trace** tool in the Management UI.
-    * Switch to the **Trace** tab of the Apigee Edge Management UI and click on the **Stop Trace** button
+Review the response returned by the proxy. It should be the same response as the one you observed when using the **Trace** tool in the Management UI. Switch to the **Trace** tab of the Apigee Edge Management UI and click on the **Stop Trace** button.
 
 ##Summary
 That completes this hands-on lesson. Simple and quick, but you learned the fundamentals of how to create an API Proxy, how to deploy and
